@@ -1,0 +1,19 @@
+README.md
+  s_01b25057ed0232::t_f5ded6f762c837 3,5-7,9-11,13-14,16,20,22-26,28,31,33,37,39,41,43-45,47,49,51,53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6a614775f1c0953267074986cb503876f69a63e5",
+  "prompts": {},
+  "sessions": {
+    "s_01b25057ed0232": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "64c3db4c-f9a1-4076-8138-5b8408de6975",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
