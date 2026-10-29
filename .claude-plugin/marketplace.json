@@ -1,0 +1,14 @@
+{
+  "name": "miko-skills",
+  "description": "Mikołaj's code review skills and subagents.",
+  "owner": {
+    "name": "Mikołaj Adamowicz"
+  },
+  "plugins": [
+    {
+      "name": "miko-skills",
+      "source": "./",
+      "description": "Multi-lens code review: truth and ownership, deep modules, senior design, minimal change, and verify-by-running."
+    }
+  ]
+}

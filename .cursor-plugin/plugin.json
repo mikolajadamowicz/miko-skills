@@ -1,0 +1,13 @@
+{
+  "name": "miko-skills",
+  "displayName": "miko-skills",
+  "version": "0.1.0",
+  "description": "Multi-lens code review: truth and ownership, deep modules, senior design, minimal change, and verify-by-running.",
+  "author": {
+    "name": "Mikołaj Adamowicz"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "review", "subagents"],
+  "skills": "./skills/",
+  "agents": "./agents/"
+}
