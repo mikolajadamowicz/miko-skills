@@ -1,0 +1,39 @@
+CLAUDE.md
+  s_01b25057ed0232::t_477a3662f75253 1
+README.md
+  s_01b25057ed0232::t_6eadd79924d499 18
+  s_01b25057ed0232::t_987a5707c8707f 45-46,49,53-57
+  s_01b25057ed0232::t_6d812a3cbb6b6f 26
+scripts/check.sh
+  s_01b25057ed0232::t_b3f1d848e26b9b 1-39
+AGENTS.md
+  s_01b25057ed0232::t_e33b21edae0866 1-75
+scripts/install-agents.sh
+  s_01b25057ed0232::t_93931fc08d0bce 2-7,13,15-16,18-52,54-61
+agents/deep-modules-reviewer.md
+  s_01b25057ed0232::t_7966439788f0c7 12
+agents/minimal-reviewer.md
+  s_01b25057ed0232::t_541743ffb66c2e 12
+agents/senior-reviewer.md
+  s_01b25057ed0232::t_911771c9a7b663 12
+agents/truth-reviewer.md
+  s_01b25057ed0232::t_fe8fef094eb6d1 12
+agents/verify-reviewer.md
+  s_01b25057ed0232::t_1e5da63a549a7c 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "034d4f65066c6921eb1120b1784dd4eb6416fbfb",
+  "prompts": {},
+  "sessions": {
+    "s_01b25057ed0232": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "64c3db4c-f9a1-4076-8138-5b8408de6975",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
