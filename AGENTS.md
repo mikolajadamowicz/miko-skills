@@ -17,10 +17,10 @@ Code review, skill-authoring, and prose-cleanup skills, plus review subagents, t
 
 ### Skills are the single source
 
-- Every review rule lives in a skill. Agent bodies only say which skill to follow and where to find it. A rule written in an agent body is missing from the fallback path, where `review` starts general-purpose subagents that read only the skills.
+- Every review rule lives in a skill. Agent bodies only say which skill to follow and where to find it. A rule written in an agent body is missing from the fallback path, where `miko-review` starts general-purpose subagents that read only the skills.
 - Write skills in harness-neutral words: "start a subagent", "general-purpose subagent", "read the file". Name a harness's tool or path only in a table that covers all three.
 - Skill `name` matches its directory, lowercase with hyphens. OpenCode rejects a mismatch.
-- Skills reference each other through the sibling directory (`finding-format.md` in the sibling `review` skill directory), never by absolute or harness-specific path. Installed skills always sit side by side.
+- Skills reference each other through the sibling directory (`finding-format.md` in the sibling `miko-review` skill directory), never by absolute or harness-specific path. Installed skills always sit side by side.
 
 ### Agent frontmatter is the intersection
 
@@ -53,7 +53,7 @@ One commit adds all of:
 
 1. `skills/review-<lens>/SKILL.md`, with the Setup section the other lenses use and findings in `finding-format.md`.
 2. `agents/<lens>-reviewer.md`, copied from an existing agent of the same kind (reading or running).
-3. A row in the lens table in `skills/review/SKILL.md`.
+3. A row in the lens table in `skills/miko-review/SKILL.md`.
 4. A row in the README skill table.
 
 ### Plugin manifests agree
