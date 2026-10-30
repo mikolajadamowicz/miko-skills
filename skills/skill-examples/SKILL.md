@@ -41,7 +41,7 @@ Pick the branch that matches the task.
 ### Search: does a skill for this already exist?
 
 1. Name the workflow in a few words and list the terms a skill for it would use in its `name` or `description`.
-2. Search every repo in the table: list its `SKILL.md` paths and read the `description` of each skill whose name matches.
+2. Search every repo in the table: list its `SKILL.md` paths, read each skill's `description`, and match the workflow terms in its name or description.
 3. Report each match as `<repo>:<path>` with its description, and recommend one of: install it as is, fork and adapt it, or write a new one because nothing fits. Say why the near misses do not fit.
 
 Done when every repo in the table was searched and each match has a recommendation.
