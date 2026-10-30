@@ -62,7 +62,7 @@ Done when the draft exists and every structural choice cites an example or a rep
 2. Read the closest examples by shape, as in Write step 2, and the two authoring guides.
 3. Check:
    - **Description**: says what the skill is and lists each distinct trigger once. Compare with the examples' descriptions.
-   - **Structure**: steps end with a checkable completion criterion. Reference that only some paths need lives in a sibling file.
+   - **Structure**: steps end with a checkable completion criterion. Put reference material needed by only some workflows in a sibling file.
    - **Length**: compare the line count with the examples of the same shape and flag anything much longer.
    - **No-ops and duplication**: sentences the agent would follow anyway, and rules stated twice.
    - **Harness fit**: frontmatter keys and tool names work in every harness the repo targets. `skill-host-compat` in ECC lists the usual breakages.
