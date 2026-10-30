@@ -1,0 +1,23 @@
+skills/review-senior/SKILL.md
+  s_1ce1cb9f1b19fa::t_2fab99401dceeb 6
+skills/review-minimal/SKILL.md
+  s_1ce1cb9f1b19fa::t_2fab99401dceeb 7
+README.md
+  s_1ce1cb9f1b19fa::t_d663960bdd0f89 47-55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e3b86b8daa4d0f80167229753530b2c43fda41f2",
+  "prompts": {},
+  "sessions": {
+    "s_1ce1cb9f1b19fa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5452b7b3-668c-427c-8655-061c2fbdbf23",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
