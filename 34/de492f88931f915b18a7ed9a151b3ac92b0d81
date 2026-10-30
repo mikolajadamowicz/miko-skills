@@ -1,0 +1,54 @@
+scripts/check.sh
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 21
+skills/review-senior/SKILL.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 17-18
+skills/miko-review/review-context-template.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 1-33
+skills/miko-review/SKILL.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 1-6,9-79
+  s_1ce1cb9f1b19fa::t_746fc3da368709 7-8
+agents/minimal-reviewer.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 3,14
+README.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 5,9,16,36
+skills/miko-review/finding-format.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 1-34
+agents/truth-reviewer.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 3,14
+skills/review-deep-modules/SKILL.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 8,18-19
+AGENTS.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 20,23,56
+skills/review-truth/SKILL.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 8,18-19
+agents/senior-reviewer.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 3,14
+skills/review-verify/SKILL.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 6,17-18
+.claude-plugin/plugin.json
+  s_1ce1cb9f1b19fa::t_0caf00ec2d274d 3
+.cursor-plugin/plugin.json
+  s_1ce1cb9f1b19fa::t_0caf00ec2d274d 4
+agents/deep-modules-reviewer.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 3,14
+skills/review-minimal/SKILL.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 18-19
+agents/verify-reviewer.md
+  s_1ce1cb9f1b19fa::t_8c97387e6f6c66 3,13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "34de492f88931f915b18a7ed9a151b3ac92b0d81",
+  "prompts": {},
+  "sessions": {
+    "s_1ce1cb9f1b19fa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5452b7b3-668c-427c-8655-061c2fbdbf23",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
