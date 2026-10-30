@@ -2,18 +2,18 @@
 
 Code review, skill-authoring, and prose-cleanup skills, plus review subagents, for Cursor, Claude Code, and OpenCode.
 
-Run `/review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat.
+Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat.
 
 | Skill | Checks |
 | --- | --- |
-| `review` | Picks the lenses, runs them, merges and filters findings |
+| `miko-review` | Picks the lenses, runs them, merges and filters findings |
 | `review-truth` | Comments that lie, values copied into two places, asymmetric branches, stale references, untrusted input used as a path |
 | `review-deep-modules` | Shallow modules, information leakage, and pass-through layers, from Ousterhout's *A Philosophy of Software Design* |
 | `review-senior` | Scalability, maintainability, readability |
 | `review-minimal` | Whether the change could be smaller, reinvented helpers, unneeded guards, tests that would pass without the change |
 | `review-verify` | Runs new or changed behaviour and reports what happened |
 
-To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/review/review-context-template.md).
+To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/miko-review/review-context-template.md).
 
 The other skills are not part of review:
 
@@ -33,7 +33,7 @@ Install all the skills together, since the review skills read each other's files
 | Cursor | Copy the repo into `~/.cursor/plugins/local/miko-skills` and reload the window. Cursor ignores symlinks there. |
 | OpenCode | `npx skills add mikolajadamowicz/miko-skills -g -a opencode`, then `scripts/install-agents.sh --opencode` from a clone |
 
-For skills only in any harness, run `npx skills add mikolajadamowicz/miko-skills -g`. `review` then uses general-purpose subagents that read the same skills. To add the agents later, run the script from a clone:
+For skills only in any harness, run `npx skills add mikolajadamowicz/miko-skills -g`. `miko-review` then uses general-purpose subagents that read the same skills. To add the agents later, run the script from a clone:
 
 ```bash
 scripts/install-agents.sh                      # ~/.claude/agents (Claude Code, and Cursor reads it too)

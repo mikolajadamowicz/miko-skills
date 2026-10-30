@@ -1,6 +1,6 @@
 # Finding format
 
-Every review lens returns its findings in this format, so the `review` skill can merge them.
+Every review lens returns its findings in this format, so the `miko-review` skill can merge them.
 
 ```
 - file: <path>:<line or line range>

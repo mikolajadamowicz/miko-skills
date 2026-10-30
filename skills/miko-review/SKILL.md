@@ -1,11 +1,11 @@
 ---
-name: review
+name: miko-review
 description: >-
   Multi-lens code review of a branch or diff. Runs the review-truth,
   review-deep-modules, review-senior, review-minimal and review-verify skills as
   parallel subagents, merges and filters their findings, and reports in chat.
-  Use when the user asks to review code, review a PR, review a branch or diff,
-  or check changes before opening or merging a PR.
+  Use only when the user names miko-review or invokes /miko-review. A generic
+  request to review code, a PR, or a diff does not start this skill.
 ---
 
 # Review

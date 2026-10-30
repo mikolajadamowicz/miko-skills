@@ -18,7 +18,7 @@ for dir in skills/*/; do
   name="$(awk '/^name: /{print $2; exit}' "$dir/SKILL.md")"
   [ "$name" = "$skill" ] || err "skills/$skill/SKILL.md has name '$name'; it must match its directory"
   [[ "$skill" == review-* ]] || continue
-  rg -q "\`$skill\`" skills/review/SKILL.md || err "skills/review/SKILL.md does not list lens $skill"
+  rg -q "\`$skill\`" skills/miko-review/SKILL.md || err "skills/miko-review/SKILL.md does not list lens $skill"
   rg -q -l "^  - $skill$" agents/ >/dev/null || err "no agent in agents/ preloads skill $skill"
 done
 

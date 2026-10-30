@@ -3,7 +3,7 @@ name: review-verify
 description: >-
   Review lens that runs new or changed behaviour and reports what actually
   happened: finds what the diff makes executable, works out how to exercise it,
-  runs it, and cites the output as evidence. Run by the review skill whenever
+  runs it, and cites the output as evidence. Run by the miko-review skill whenever
   the diff adds or changes behaviour, or on its own when the user asks to check
   that a change actually works.
 ---
@@ -14,8 +14,8 @@ Reading code tells you what it should do. This lens finds out what it does. A cl
 
 ## Setup
 
-- If the `review` skill started you, it gave you the repo, base ref, and paths to `finding-format.md` and maybe `REVIEW.md`.
-- If you run on your own, get the diff with `git diff $(git merge-base origin/HEAD HEAD)...HEAD` plus `git diff HEAD`, read `REVIEW.md` at the repo root if it exists, and use the finding format in `finding-format.md` inside the sibling `review` skill directory.
+- If the `miko-review` skill started you, it gave you the repo, base ref, and paths to `finding-format.md` and maybe `REVIEW.md`.
+- If you run on your own, get the diff with `git diff $(git merge-base origin/HEAD HEAD)...HEAD` plus `git diff HEAD`, read `REVIEW.md` at the repo root if it exists, and use the finding format in `finding-format.md` inside the sibling `miko-review` skill directory.
 
 ## Safety
 
