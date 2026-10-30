@@ -13,6 +13,8 @@ Apply these rules whenever producing or rewriting prose.
 
 Do not apply stylistic rewriting to code, commands, identifiers, file paths, URLs, logs, error messages, quotations, or other text that must remain exact.
 
+Word lists and before/after examples for these rules are in [examples.md](examples.md) in this skill's directory, under the same headings. Read it when you rewrite a longer text or are unsure whether a phrase is a tell.
+
 ## Priorities
 
 When editing or generating text, optimize in this order:
@@ -72,18 +74,7 @@ Prefer words people actually use in conversation and normal professional writing
 
 Choose the simplest natural word that keeps the intended meaning.
 
-Prefer:
-
-- use instead of utilize or leverage
-- help instead of facilitate
-- improve instead of enhance
-- show instead of showcase
-- start instead of initiate
-- many instead of numerous
-- enough instead of sufficient when appropriate
-- if instead of in the event that
-- because instead of due to the fact that
-- to instead of in order to
+Examples: [examples.md](examples.md#use-plain-language).
 
 Do not mechanically replace words. Context still matters.
 
@@ -91,25 +82,7 @@ Do not mechanically replace words. Context still matters.
 
 Claude and other LLMs often make ordinary ideas sound grander than they are.
 
-Remove unnecessary words such as:
-
-- crucial
-- pivotal
-- profound
-- compelling
-- intricate
-- nuanced
-- transformative
-- groundbreaking
-- remarkable
-- robust
-- seamless
-- comprehensive
-- holistic
-- multifaceted
-- sophisticated
-- powerful
-- elegant
+Examples: [examples.md](examples.md#avoid-inflated-wording).
 
 These words are allowed when they communicate something specific and justified.
 
@@ -117,83 +90,25 @@ Do not use them as decoration.
 
 ### Avoid poetic language by default
 
-Do not turn normal explanations into prose such as:
-
-- "sits at the heart of"
-- "opens the door to"
-- "paves the way for"
-- "serves as a bridge"
-- "the foundation upon which"
-- "the broader landscape"
-- "at the intersection of"
-- "a testament to"
-- "a delicate balance"
-- "a rich tapestry"
-- "embarks on a journey"
+Examples: [examples.md](examples.md#avoid-poetic-language-by-default).
 
 Say what actually happens.
-
-Instead of:
-
-> This architecture serves as the foundation upon which the entire application experience is built.
-
-Write:
-
-> The rest of the app depends on this architecture.
 
 ## Prefer simple verbs
 
 Do not replace simple verbs such as `is`, `has`, `uses`, or `does` with grander alternatives simply to make the sentence sound more polished.
 
-Be suspicious of constructions such as:
-
-- serves as
-- stands as
-- acts as
-- functions as
-- represents
-- constitutes
-- boasts
-- features
-- offers
-- provides
+Examples: [examples.md](examples.md#prefer-simple-verbs).
 
 Use them when they describe a real distinction.
 
 If the sentence simply means `is`, `has`, or `uses`, say that.
 
-Instead of:
-
-> The dashboard serves as the central interface for managing deployments.
-
-Prefer:
-
-> The dashboard is the main interface for managing deployments.
-
-Instead of:
-
-> The application boasts an extensive collection of customization options.
-
-Prefer:
-
-> The application has many customization options.
-
 ## Cut filler
 
 Delete introductions that delay the actual point.
 
-Avoid openings such as:
-
-- "In today's world..."
-- "In the rapidly evolving..."
-- "When it comes to..."
-- "It's important to note that..."
-- "It is worth mentioning..."
-- "At the end of the day..."
-- "As we have seen..."
-- "Needless to say..."
-- "The reality is that..."
-- "There is no doubt that..."
+Examples: [examples.md](examples.md#cut-filler).
 
 Start with the useful information.
 
@@ -207,15 +122,7 @@ Use a transition only when the relationship between ideas would otherwise be unc
 
 Do not add vague disclaimers that announce missing information without helping the reader.
 
-Avoid phrases such as:
-
-- "While specific details are limited..."
-- "Although information is scarce..."
-- "Based on the available information..."
-- "Without more context..."
-- "It is difficult to say for certain..."
-- "There is limited public information..."
-- "Details remain unclear..."
+Examples: [examples.md](examples.md#avoid-cutoff-disclaimers).
 
 Use these only when the limitation genuinely matters to the answer.
 
@@ -227,27 +134,11 @@ When possible:
 
 Do not use a generic disclaimer as filler.
 
-Instead of:
-
-> While specific details are limited, the migration appears to have improved performance.
-
-Prefer:
-
-> The team reports faster startup times, but no benchmark numbers were published.
-
 ## Remove AI rhetorical patterns
 
 ### Avoid formulaic contrast
 
-Avoid constructions such as:
-
-> It's not X. It's Y.
-
-> This isn't about X. It's about Y.
-
-> Not only X, but also Y.
-
-> It's less about X and more about Y.
+Examples: [examples.md](examples.md#avoid-formulaic-contrast).
 
 Use them only when the contrast itself is genuinely important.
 
@@ -257,15 +148,7 @@ Usually, state the actual point directly.
 
 LLMs often create artificial balance by beginning with a generic limitation and following it with a positive conclusion.
 
-Be suspicious of structures such as:
-
-> Despite these challenges, the company continues to thrive.
-
-> Despite its limitations, the framework remains a powerful choice.
-
-> While there are some drawbacks, the overall experience is positive.
-
-> Although the implementation is complex, it offers significant benefits.
+Examples: [examples.md](examples.md#avoid-formulaic-concession-sentences).
 
 Do not automatically add a drawback before a positive statement.
 
@@ -273,25 +156,13 @@ Mention the limitation only if it is relevant.
 
 State the specific tradeoff instead of using a generic concession.
 
-Instead of:
-
-> Despite its limitations, the library remains a powerful tool for developers.
-
-Prefer:
-
-> The library lacks offline support, but its API is simple and well documented.
-
 If the limitation does not matter, remove the concession entirely.
 
 ### Do not force groups of three
 
 Do not automatically package ideas into three items because three sounds rhetorically neat.
 
-Avoid patterns such as:
-
-> Faster. Smarter. Better.
-
-> Build faster, collaborate better, and ship confidently.
+Examples: [examples.md](examples.md#do-not-force-groups-of-three).
 
 Use however many points the idea actually requires.
 
@@ -299,27 +170,13 @@ Use however many points the idea actually requires.
 
 Do not make several consecutive sentences follow the same grammatical shape merely for effect.
 
-For example, avoid:
-
-> You need clarity. You need discipline. You need focus. You need consistency.
+Examples: [examples.md](examples.md#avoid-repetitive-parallelism).
 
 Rewrite it as normal prose.
 
 ### Avoid rhetorical fragment questions
 
-Do not use fragments such as:
-
-> The problem? Latency.
-
-> The result? A slower application.
-
-> The reason? Poor caching.
-
-Write:
-
-> The problem is latency.
-
-or restructure the paragraph naturally.
+Examples: [examples.md](examples.md#avoid-rhetorical-fragment-questions).
 
 Normal questions are fine when the text genuinely asks a question.
 
@@ -345,64 +202,15 @@ Do not use `from X to Y` unless X and Y are meaningful endpoints of a real range
 
 LLMs often use this structure to connect unrelated topics.
 
-Avoid:
-
-> From React performance to company culture, the conference covered everything developers need.
-
-> From authentication to AI agents, the platform handles modern development workflows.
-
-> From small startups to global enterprises, the solution works for everyone.
+Examples: [examples.md](examples.md#avoid-false-ranges).
 
 Use a normal list or state the actual scope.
-
-Prefer:
-
-> The conference covered React performance, company culture, and several other developer topics.
-
-or:
-
-> The platform includes authentication and AI agent tooling.
-
-Use `from X to Y` when the range is real:
-
-> The migration reduced startup time from 3.2 seconds to 1.8 seconds.
-
-> The SDK supports Android versions from API 26 to API 36.
 
 ## Avoid AI vocabulary
 
 Be suspicious of words and phrases commonly used to make simple ideas sound analytical or impressive.
 
-Examples include:
-
-- delve
-- landscape
-- ecosystem when "system" or a specific group would work
-- interplay
-- tapestry
-- paradigm
-- pivotal
-- underscore
-- foster
-- harness
-- leverage
-- navigate
-- elevate
-- unlock
-- empower
-- streamline
-- augment
-- showcase
-- realm
-- journey
-- lens
-- cornerstone
-- north star
-- flywheel
-- nexus
-- substrate
-- scaffolding when used metaphorically
-- surface when used as an abstract metaphor
+Examples: [examples.md](examples.md#avoid-ai-vocabulary).
 
 These words are not banned.
 
@@ -414,29 +222,7 @@ Prefer concrete descriptions.
 
 Avoid sentences that sound meaningful but provide little information.
 
-Instead of:
-
-> The API provides a seamless developer experience.
-
-Explain why:
-
-> The API requires one function call and returns typed results.
-
-Instead of:
-
-> This creates a more robust architecture.
-
-Explain what changes:
-
-> Each module owns its state, so changing one feature does not require updating the others.
-
-Instead of:
-
-> This significantly improves performance.
-
-Give the result if known:
-
-> Startup time dropped from 2.4 seconds to 1.7 seconds.
+Examples: [examples.md](examples.md#prefer-concrete-statements).
 
 If no measurement exists, do not imply one.
 
@@ -448,25 +234,11 @@ For technical writing, documentation, product descriptions, and project explanat
 
 If yes, it is probably too generic.
 
-Examples of weak generic prose:
-
-> The framework provides a flexible and intuitive developer experience.
-
-> The architecture is designed with scalability and maintainability in mind.
-
-> This solution enables teams to build better software more efficiently.
+Examples: [examples.md](examples.md#use-the-project-specific-prose-test).
 
 These statements could describe almost anything.
 
 Replace them with information specific to the actual project.
-
-Prefer:
-
-> The framework generates typed API clients from the GraphQL schema.
-
-> Each feature owns its routes, state, and API calls.
-
-> Builds are cached by workspace, so unchanged packages are not rebuilt.
 
 Project-specific prose should tell the reader something they could not learn from a generic software landing page.
 
@@ -474,23 +246,9 @@ Project-specific prose should tell the reader something they could not learn fro
 
 Do not list companies, publications, researchers, products, or public figures merely to create authority or importance.
 
-Avoid:
-
-> The project has been featured by Forbes, Bloomberg, TechCrunch, Wired, and The Verge.
-
-> Companies such as Google, Meta, Netflix, and Amazon use similar approaches.
-
-> Experts including X, Y, and Z have discussed this idea.
+Examples: [examples.md](examples.md#avoid-name-dropping-without-substance).
 
 If the name matters, explain why.
-
-Prefer:
-
-> Bloomberg reported that the company had 4 million subscribers in March.
-
-or:
-
-> Netflix described a similar caching strategy in its engineering blog.
 
 Do not include a name simply because recognition makes the sentence sound more credible.
 
@@ -498,14 +256,7 @@ If several sources say the same thing, keep all sources when the document's cita
 
 ## Avoid vague attribution
 
-Avoid:
-
-- experts say
-- research shows
-- critics argue
-- industry reports suggest
-- many developers believe
-- it is widely considered
+Examples: [examples.md](examples.md#avoid-vague-attribution).
 
 Name the source when it matters.
 
@@ -515,18 +266,7 @@ If there is no source and the attribution adds nothing, remove it.
 
 Avoid promotional adjectives unless the user explicitly wants marketing copy.
 
-Examples:
-
-- stunning
-- breathtaking
-- world-class
-- cutting-edge
-- revolutionary
-- best-in-class
-- must-have
-- must-visit
-- game-changing
-- unparalleled
+Examples: [examples.md](examples.md#remove-empty-promotional-language).
 
 Describe the actual quality instead.
 
@@ -544,13 +284,7 @@ Short sentences can add clarity or emphasis.
 
 Several short sentences in a row often sound generated.
 
-Avoid:
-
-> The API is simple. It is fast. It is flexible. It works everywhere.
-
-Prefer something like:
-
-> The API is simple and works across platforms. It also avoids much of the setup required by the previous approach.
+Examples: [examples.md](examples.md#avoid-excessive-short-sentences).
 
 ### Avoid overly dense sentences
 
@@ -566,13 +300,7 @@ The goal is natural rhythm.
 
 Prefer active voice when the actor matters.
 
-Instead of:
-
-> The configuration is loaded by the server.
-
-Write:
-
-> The server loads the configuration.
+Examples: [examples.md](examples.md#sentence-structure).
 
 Passive voice is fine when:
 
@@ -604,11 +332,7 @@ Repetition is often clearer than forced variety.
 
 Watch for unnecessary clauses ending in `-ing`, especially when they merely restate the previous sentence.
 
-Examples:
-
-> The cache stores the response, improving the overall user experience.
-
-> The change reduces startup work, ensuring better performance.
+Examples: [examples.md](examples.md#avoid-weak-filler-clauses).
 
 Ask what the second clause actually tells the reader.
 
@@ -618,13 +342,7 @@ If it adds no concrete information, remove it.
 
 Do not stack uncertainty.
 
-Avoid:
-
-> It could potentially perhaps cause...
-
-Use:
-
-> It may cause...
+Examples: [examples.md](examples.md#avoid-excessive-hedging).
 
 Keep hedging when uncertainty is real.
 
@@ -632,17 +350,7 @@ Do not make uncertain claims sound certain just to make the sentence shorter.
 
 ## Avoid unnecessary adverbs
 
-Be suspicious of words such as:
-
-- significantly
-- greatly
-- dramatically
-- effectively
-- efficiently
-- seamlessly
-- incredibly
-- extremely
-- highly
+Examples: [examples.md](examples.md#avoid-unnecessary-adverbs).
 
 Use them when they carry real information.
 
@@ -708,21 +416,7 @@ Do not chain several related thoughts with semicolons.
 
 Use one only when it is clearly more natural and precise than the simpler alternatives.
 
-Instead of:
-
-> The API is stable; however, the documentation is incomplete.
-
-Prefer:
-
-> The API is stable, but the documentation is incomplete.
-
-Instead of:
-
-> The migration reduced complexity; it also removed two runtime dependencies.
-
-Prefer:
-
-> The migration reduced complexity and removed two runtime dependencies.
+Examples: [examples.md](examples.md#semicolons).
 
 ### Colons
 
@@ -766,13 +460,7 @@ Do not use bold as a substitute for clear writing.
 
 Use sentence case.
 
-Prefer:
-
-> How the cache works
-
-Not:
-
-> How The Cache Works
+Examples: [examples.md](examples.md#headings).
 
 Do not create headings for tiny sections that would read better as normal paragraphs.
 
@@ -798,18 +486,7 @@ Do not use decorative emoji in headings or bullet lists unless:
 
 ## Chatbot language
 
-Avoid generic assistant phrases such as:
-
-- "Great question!"
-- "Absolutely!"
-- "Certainly!"
-- "Of course!"
-- "You're absolutely right."
-- "I hope this helps."
-- "Let me know if you have any questions."
-- "Feel free to ask..."
-- "Happy to help!"
-- "Here's the exciting part..."
+Examples: [examples.md](examples.md#chatbot-language).
 
 Respond to the substance instead.
 
@@ -819,13 +496,7 @@ Politeness is fine. Generic assistant padding is not.
 
 Do not add a conclusion simply because the text feels like it should have one.
 
-Avoid generic endings such as:
-
-> Ultimately, the future looks promising.
-
-> Only time will tell.
-
-> This represents an exciting step forward.
+Examples: [examples.md](examples.md#conclusions).
 
 End when the useful information is finished.
 
@@ -862,15 +533,7 @@ For technical explanations:
 - avoid explaining basic terms when the intended reader already knows them
 - do not use metaphors when a direct technical explanation is clearer
 
-Do not turn:
-
-> React reconciles the component tree after the state update.
-
-into:
-
-> React looks through everything and figures out what changed.
-
-The first version may be more precise for the intended reader.
+Examples: [examples.md](examples.md#technical-writing).
 
 Plain language should not reduce technical accuracy.
 
