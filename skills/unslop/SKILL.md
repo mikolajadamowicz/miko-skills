@@ -57,7 +57,7 @@ Removing patterns is half the job. Sterile, voiceless writing is just as obvious
 
 ### Communication artifacts
 
-20. **Chatbot phrases.** "I hope this helps!", "Let me know if...", "Of course!", "Certainly!", "Found the smoking gun!" Remove.
+20. **Chatbot phrases.** Remove these only when they are empty boilerplate; preserve them when they convey a real request or intent, such as "Let me know if you can join."
 21. **Cutoff disclaimers.** "While specific details are limited..." Find sources or remove.
 22. **Sycophantic tone.** "Great question! You're absolutely right!" Respond directly.
 
