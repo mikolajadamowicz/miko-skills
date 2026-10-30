@@ -1,12 +1,12 @@
 # miko-skills
 
-Code review skills and subagents that must work in three harnesses: **Cursor**, **Claude Code**, and **OpenCode**. Every change keeps all three working. If a change can only work in one, stop and ask.
+Code review, skill-authoring, and prose-cleanup skills, plus review subagents, that must work in three harnesses: **Cursor**, **Claude Code**, and **OpenCode**. Every change keeps all three working. If a change can only work in one, stop and ask.
 
 ## Layout
 
 | Path | Owns | Read by |
 | --- | --- | --- |
-| `skills/<name>/SKILL.md` | All review rules and steps | All three, and the Vercel `skills` CLI |
+| `skills/<name>/SKILL.md` | All rules and steps | All three, and the Vercel `skills` CLI |
 | `agents/*.md` | Subagent wrappers: frontmatter plus a pointer to one skill | Cursor and Claude Code as is; OpenCode after `scripts/install-agents.sh --opencode` converts them |
 | `.cursor-plugin/plugin.json` | Cursor plugin manifest | Cursor |
 | `.claude-plugin/plugin.json`, `marketplace.json` | Claude Code plugin and marketplace | Claude Code |

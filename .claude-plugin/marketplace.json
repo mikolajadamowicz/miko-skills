@@ -1,6 +1,6 @@
 {
   "name": "miko-skills",
-  "description": "Mikołaj's code review skills and subagents.",
+  "description": "Mikołaj's code review, skill-authoring, and writing skills and subagents.",
   "owner": {
     "name": "Mikołaj Adamowicz"
   },
@@ -8,7 +8,7 @@
     {
       "name": "miko-skills",
       "source": "./",
-      "description": "Multi-lens code review: truth and ownership, deep modules, senior design, minimal change, and verify-by-running."
+      "description": "Multi-lens code review (truth and ownership, deep modules, senior design, minimal change, verify-by-running), an index of example skill repos for writing skills, and prose cleanup (humanize, unslop)."
     }
   ]
 }

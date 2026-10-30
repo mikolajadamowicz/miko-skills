@@ -1,6 +1,6 @@
 # miko-skills
 
-Code review skills and subagents for Cursor, Claude Code, and OpenCode.
+Code review, skill-authoring, and prose-cleanup skills, plus review subagents, for Cursor, Claude Code, and OpenCode.
 
 Run `/review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat.
 
@@ -15,9 +15,17 @@ Run `/review` on a branch. It starts one subagent per lens in parallel, merges t
 
 To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/review/review-context-template.md).
 
+The other skills are not part of review:
+
+| Skill | Use it for |
+| --- | --- |
+| `skill-examples` | Indexes six public skill repos (Matt Pocock's skills, Superpowers, pstack, gstack, ECC, Callstack's software factory). The agent reads and cites them when searching for an existing skill, writing a new one, or reviewing one. |
+| `humanize` | Removes AI writing patterns from technical prose: PR descriptions, docs, code comments, reports |
+| `unslop` | Removes AI writing patterns from casual prose: chat, Slack, email, social posts |
+
 ## Install
 
-Install all six skills together, since they read each other's files. Use one route per harness, or the skills load twice.
+Install all the skills together, since the review skills read each other's files. Use one route per harness, or the skills load twice.
 
 | Harness | Skills and agents |
 | --- | --- |
