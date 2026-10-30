@@ -494,7 +494,7 @@ or:
 
 Do not include a name simply because recognition makes the sentence sound more credible.
 
-If several sources say the same thing, cite the strongest or most relevant source instead of listing names.
+If several sources say the same thing, keep all sources when the document's citation requirements or the user's intent call for them; otherwise, prefer the strongest or most relevant source.
 
 ## Avoid vague attribution
 
