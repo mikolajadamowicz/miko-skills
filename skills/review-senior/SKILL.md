@@ -3,7 +3,7 @@ name: review-senior
 description: >-
   Review lens for scalability, maintainability, and readability, with concrete
   checks for each: growth and concurrency behaviour, coupling, testability,
-  error handling, naming, comment density, and control flow. Run by the review
+  error handling, naming, comment density, and control flow. Run by the miko-review
   skill, or on its own when the user asks for a senior-dev review of
   scalability, maintainability, or readability.
 ---

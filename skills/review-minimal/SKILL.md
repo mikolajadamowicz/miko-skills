@@ -4,7 +4,7 @@ description: >-
   Review lens that asks whether the diff is the smallest change that does the
   job: speculative branches and options, ride-along work, reinvented helpers,
   duplicated rules across layers, defensive guards the call site does not need,
-  and tests that would not fail if the change were reverted. Run by the review
+  and tests that would not fail if the change were reverted. Run by the miko-review
   skill, or on its own when the user asks whether a change could be smaller or
   reuse more.
 ---

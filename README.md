@@ -44,6 +44,15 @@ scripts/install-agents.sh --all path/to/repo   # all three, inside a project
 
 Re-run it after pulling changes to `agents/`.
 
+### Upgrading from 0.2
+
+Version 0.3 renamed the `review` skill to `miko-review`. Updating does not delete the old `review/` directory, and it keeps answering `/review` and generic review requests. Remove it:
+
+- `npx skills` installs: `npx skills remove -g review`
+- Cursor local plugin: delete `~/.cursor/plugins/local/miko-skills/skills/review`, or replace the whole folder with a fresh copy
+
+The Claude Code plugin installs each version into its own directory, so it needs no cleanup.
+
 ## Models
 
 Agents use the parent chat's model. To pin one, set `model:` in the installed agent file. Each harness has its own format:
