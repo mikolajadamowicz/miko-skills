@@ -1,0 +1,21 @@
+skills/humanize/SKILL.md
+  s_4169d99a48b940::t_c32386126809e5 1-950
+skills/unslop/SKILL.md
+  s_4169d99a48b940::t_c32386126809e5 1-80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6dd28fa56acc9e590165daa3d9209c241e429b89",
+  "prompts": {},
+  "sessions": {
+    "s_4169d99a48b940": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "33881267-b3fb-4b28-948f-b4fbc5ddd5b0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
