@@ -1,0 +1,37 @@
+scripts/check.sh
+  s_b57296b23c0da0::t_5ac26c443b6444 29-33
+skills/review-minimal/SKILL.md
+  s_b57296b23c0da0::t_b0ebeb041848fa 19
+skills/miko-review/SKILL.md
+  s_b57296b23c0da0::t_094a09e4952ff6 50
+  s_b57296b23c0da0::t_0c32a3a863744a 19
+skills/review-deep-modules/SKILL.md
+  s_b57296b23c0da0::t_b0ebeb041848fa 19
+skills/review-senior/SKILL.md
+  s_b57296b23c0da0::t_b0ebeb041848fa 18
+skills/review-verify/SKILL.md
+  s_b57296b23c0da0::t_b0ebeb041848fa 18
+README.md
+  s_b57296b23c0da0::t_c172bb27db9488 5
+skills/review-experience/SKILL.md
+  s_b57296b23c0da0::t_b0ebeb041848fa 21
+  s_b57296b23c0da0::t_288a391741ad44 73
+skills/review-truth/SKILL.md
+  s_b57296b23c0da0::t_b0ebeb041848fa 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f9877a08d5356ad918bc7a7e69ac2674ebcdd030",
+  "prompts": {},
+  "sessions": {
+    "s_b57296b23c0da0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3afc5287-ecf6-4a0e-b0be-c817b362cc35",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
