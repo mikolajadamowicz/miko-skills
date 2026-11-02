@@ -1,0 +1,22 @@
+skills/miko-review/SKILL.md
+  s_b57296b23c0da0::t_161b386223dedf 66
+  s_b57296b23c0da0::t_3589033d856083 59-60
+  s_b57296b23c0da0::t_899ef5676b2918 95
+  s_b57296b23c0da0::t_9d50618db0cda8 72-73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cdcadbbff887ab78c20a453afc8b8117a20fde7c",
+  "prompts": {},
+  "sessions": {
+    "s_b57296b23c0da0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3afc5287-ecf6-4a0e-b0be-c817b362cc35",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
