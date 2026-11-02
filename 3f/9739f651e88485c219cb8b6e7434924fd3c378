@@ -1,0 +1,21 @@
+README.md
+  s_b57296b23c0da0::t_2f015467c8ae16 25
+skills/miko-review/extensions.md
+  s_b57296b23c0da0::t_88b7597b767e20 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3f9739f651e88485c219cb8b6e7434924fd3c378",
+  "prompts": {},
+  "sessions": {
+    "s_b57296b23c0da0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3afc5287-ecf6-4a0e-b0be-c817b362cc35",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
