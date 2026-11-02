@@ -22,7 +22,7 @@ To add your own instructions to one review skill without forking it, write an ex
 | --- | --- |
 | Private, all your repos | `~/.config/miko-skills/<skill>.md` (symlink the directory to a private repo clone) |
 | Project, committed | `.miko-skills/<skill>.md` |
-| Local, this machine | `.miko-skills/local/<skill>.md` (add it to `.git/info/exclude`) |
+| Local, this machine | `.miko-skills/local/<skill>.md` (keep it out of git with the command in [extensions.md](skills/miko-review/extensions.md)) |
 
 [extensions.md](skills/miko-review/extensions.md) has the full rules and an example.
 
