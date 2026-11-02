@@ -1,0 +1,21 @@
+README.md
+  s_5fd3d67c0b99f5::t_429b58268563b1 35
+skills/simple-explain/SKILL.md
+  s_5fd3d67c0b99f5::t_2b7bb829d1d3ed 1-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fb6246db19582eb49fba2e52b4d18c2a3dfbfd34",
+  "prompts": {},
+  "sessions": {
+    "s_5fd3d67c0b99f5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ac69019e-bc5c-4380-9eb7-7ee7d518082e",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
