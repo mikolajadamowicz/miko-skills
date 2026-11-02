@@ -26,8 +26,11 @@ for dir in skills/*/; do
   [ "$name" = "$skill" ] || err "skills/$skill/SKILL.md has name '$name'; it must match its directory"
   [[ "$skill" == review-* ]] || continue
   rg -q "\`$skill\`" skills/miko-review/SKILL.md || err "skills/miko-review/SKILL.md does not list lens $skill"
-  rg -q "\`$skill\`" README.md || err "README.md does not list lens $skill"
-  rg -q "\`lens: ${skill#review-}\`" "$dir/SKILL.md" || err "skills/$skill/SKILL.md does not tell the lens to return lens: ${skill#review-}"
+  rg -q "^\| \`$skill\` \|" README.md || err "README.md has no table row for lens $skill"
+  lens="${skill#review-}"
+  rg -q "with \`lens: $lens\`" "$dir/SKILL.md" || err "skills/$skill/SKILL.md does not tell the lens to return lens: $lens"
+  [[ "$(field .claude-plugin/plugin.json description)" == *"${lens//-/ }"* ]] \
+    || err "plugin description does not mention lens '${lens//-/ }'"
   rg -q 'extensions\.md' "$dir/SKILL.md" || err "skills/$skill/SKILL.md does not load its extensions"
   rg -q -l "^  - $skill$" agents/ >/dev/null || err "no agent in agents/ preloads skill $skill"
 done

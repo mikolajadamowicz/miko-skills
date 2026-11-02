@@ -2,7 +2,7 @@
 
 Code review, skill-authoring, and prose-cleanup skills, plus review subagents, for Cursor, Claude Code, and OpenCode.
 
-Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat. The report opens with a verdict and shows every Block finding, the top 8 Fix findings, and the top 5 Ask findings. The last line counts what it left out, and "show all" lists the hidden findings along with the ones it filtered as low confidence or minor.
+Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat. The report opens with a verdict and shows every Block finding, the top 8 Fix findings, and the top 5 Ask findings. When findings are left out, the last line counts them, and "show all" lists the hidden findings along with the ones it filtered as low confidence or minor.
 
 | Skill | Checks |
 | --- | --- |

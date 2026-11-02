@@ -16,7 +16,7 @@ You coordinate the review. You do not review code yourself: each lens runs in it
 
 The lenses are sibling skills, installed next to this one. Their `SKILL.md` files are in the directories beside this skill's directory.
 
-Each lens may also be installed as a custom subagent in any of the three harnesses (Cursor, Claude Code, OpenCode), which wraps the same skill and limits the reading lenses to read-only access. Installed as a plugin, the subagent type carries the plugin prefix, such as `miko-skills:truth-reviewer`.
+Each lens may also be installed as a custom subagent in any of the three harnesses (Cursor, Claude Code, OpenCode), which wraps the same skill. How strictly a harness keeps the reading lenses read-only varies, so step 4 still tells them not to edit files. Installed as a plugin, the subagent type carries the plugin prefix, such as `miko-skills:truth-reviewer`.
 
 | Skill | Subagent | Question it answers | Runs when |
 | --- | --- | --- | --- |
@@ -47,6 +47,7 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
    - the repo path, the base ref, and how to get the diff (do not paste a large diff; let the lens run git)
    - the `REVIEW.md` path, if there is one
    - any focus the user asked for
+   - the PR title and description, if the user named a PR
    - the instruction to return every finding, including those below confidence 70 and past the 12-finding limit
 
    Every lens except `review-verify` only reads; tell them not to edit files. `review-verify` may run commands but must not edit tracked files, commit, or push.
