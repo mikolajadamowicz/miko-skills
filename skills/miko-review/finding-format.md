@@ -4,7 +4,7 @@ Every review lens returns its findings in this format, so the `miko-review` skil
 
 ```
 - file: <path>:<line or line range>
-  lens: <truth | deep-modules | senior | minimal | verify>
+  lens: <truth | deep-modules | senior | minimal | experience | verify>
   check: <the check's name from the lens>
   severity: <Block | Fix | Ask>
   confidence: <0-100>

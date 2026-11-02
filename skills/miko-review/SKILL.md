@@ -2,8 +2,9 @@
 name: miko-review
 description: >-
   Multi-lens code review of a branch or diff. Runs the review-truth,
-  review-deep-modules, review-senior, review-minimal and review-verify skills as
-  parallel subagents, merges and filters their findings, and reports in chat.
+  review-deep-modules, review-senior, review-minimal, review-experience and
+  review-verify skills as parallel subagents, merges and filters their findings,
+  and reports in chat.
   Use only when the user names miko-review or invokes /miko-review. A generic
   request to review code, a PR, or a diff does not start this skill.
 ---
@@ -24,6 +25,7 @@ Each lens may also be installed as a custom subagent (Cursor or Claude Code), wh
 | `review-deep-modules` | `deep-modules-reviewer` | Do the modules hide complexity behind simple interfaces? | The diff adds or changes code, not only docs or config |
 | `review-senior` | `senior-reviewer` | Will this scale, stay maintainable, and read clearly? | The diff adds or changes code |
 | `review-minimal` | `minimal-reviewer` | Is this the smallest change, and does it reuse what exists? | The diff adds or changes code |
+| `review-experience` | `experience-reviewer` | Is this change good for the person who has to use it? | The diff changes code a consumer touches: a UI, CLI, user-facing message, or public or shared API |
 | `review-verify` | `verify-reviewer` | Does the new or changed behaviour actually work when run? | The diff adds or changes behaviour (see below) |
 
 Behaviour changes are code that can be executed: a function, command, endpoint, UI, script, CI job, or a config that changes what runs. Docs, comments, formatting, and test-only changes are not. When unsure, run `review-verify`; it reports "nothing to run" cheaply.
@@ -47,7 +49,7 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
    - the `REVIEW.md` path, if there is one
    - any focus the user asked for
 
-   The four reading lenses only read; tell them not to edit files. `review-verify` may run commands but must not edit tracked files, commit, or push.
+   The five reading lenses only read; tell them not to edit files. `review-verify` may run commands but must not edit tracked files, commit, or push.
 5. **Merge.**
    - Drop findings with confidence below 70.
    - Merge findings that point at the same `file:line` and the same underlying problem. Keep the clearer wording and list every lens that raised it.

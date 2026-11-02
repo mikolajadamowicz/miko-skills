@@ -11,6 +11,7 @@ Run `/miko-review` on a branch. It starts one subagent per lens in parallel, mer
 | `review-deep-modules` | Shallow modules, information leakage, and pass-through layers, from Ousterhout's *A Philosophy of Software Design* |
 | `review-senior` | Scalability, maintainability, readability |
 | `review-minimal` | Whether the change could be smaller, reinvented helpers, unneeded guards, tests that would pass without the change |
+| `review-experience` | Options with no reason to exist, failures that leave the consumer stuck, actions with no feedback, work pushed onto the consumer |
 | `review-verify` | Runs new or changed behaviour and reports what happened |
 
 To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/miko-review/review-context-template.md).
@@ -74,7 +75,7 @@ Agents use the parent chat's model. To pin one, set `model:` in the installed ag
 
 ## Read-only reviewers
 
-Four of the lenses only read code. Cursor enforces that with `readonly`, and OpenCode with `permission: edit: deny`. In Claude Code they have no edit or write tools, but Bash can still write files, so permission prompts are the real guard.
+Five of the lenses only read code. Cursor enforces that with `readonly`, and OpenCode with `permission: edit: deny`. In Claude Code they have no edit or write tools, but Bash can still write files, so permission prompts are the real guard.
 
 ## Contributing
 
