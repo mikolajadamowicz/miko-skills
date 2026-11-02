@@ -16,7 +16,7 @@ A module is deep when a simple interface hides a lot of functionality. Complexit
 ## Setup
 
 - If the `miko-review` skill started you, it gave you the repo, base ref, and paths to `finding-format.md` and maybe `REVIEW.md`.
-- If you run on your own, get the diff with `git diff $(git merge-base origin/HEAD HEAD)...HEAD` plus `git diff HEAD`, read `REVIEW.md` at the repo root if it exists, and use the finding format in `finding-format.md` inside the sibling `miko-review` skill directory.
+- If you run on your own, get the diff with `git diff $(git merge-base origin/HEAD HEAD)...HEAD` plus `git diff HEAD` (use `origin/main` or `main` if `origin/HEAD` is not set), read `REVIEW.md` at the repo root if it exists, and use the finding format in `finding-format.md` inside the sibling `miko-review` skill directory.
 - Load this skill's extensions as `extensions.md` describes. It sits next to `finding-format.md`.
 - Read only. Do not edit files.
 

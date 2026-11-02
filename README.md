@@ -2,7 +2,7 @@
 
 Code review, skill-authoring, and prose-cleanup skills, plus review subagents, for Cursor, Claude Code, and OpenCode.
 
-Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat. The report opens with a verdict and shows every Block finding, the top 8 Fix findings, and the top 5 Ask findings. Ask "show all" to see the rest.
+Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat. The report opens with a verdict and shows every Block finding, the top 8 Fix findings, and the top 5 Ask findings. When findings are left out, the last line counts them, and "show all" lists the hidden findings along with the ones it filtered as low confidence or minor.
 
 | Skill | Checks |
 | --- | --- |
@@ -11,6 +11,7 @@ Run `/miko-review` on a branch. It starts one subagent per lens in parallel, mer
 | `review-deep-modules` | Shallow modules, information leakage, and pass-through layers, from Ousterhout's *A Philosophy of Software Design* |
 | `review-senior` | Scalability, maintainability, readability |
 | `review-minimal` | Whether the change could be smaller, reinvented helpers, unneeded guards, tests that would pass without the change |
+| `review-experience` | Options with no reason to exist, failures that leave the consumer stuck, actions with no feedback, work pushed onto the consumer |
 | `review-verify` | Runs new or changed behaviour and reports what happened |
 
 To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/miko-review/review-context-template.md).
@@ -21,7 +22,7 @@ To add your own instructions to one review skill without forking it, write an ex
 | --- | --- |
 | Private, all your repos | `~/.config/miko-skills/<skill>.md` (symlink the directory to a private repo clone) |
 | Project, committed | `.miko-skills/<skill>.md` |
-| Local, this machine | `.miko-skills/local/<skill>.md` (add it to `.git/info/exclude`) |
+| Local, this machine | `.miko-skills/local/<skill>.md` (keep it out of git with the command in [extensions.md](skills/miko-review/extensions.md)) |
 
 [extensions.md](skills/miko-review/extensions.md) has the full rules and an example.
 
@@ -74,7 +75,7 @@ Agents use the parent chat's model. To pin one, set `model:` in the installed ag
 
 ## Read-only reviewers
 
-Four of the lenses only read code. Cursor enforces that with `readonly`, and OpenCode with `permission: edit: deny`. In Claude Code they have no edit or write tools, but Bash can still write files, so permission prompts are the real guard.
+Every lens except `review-verify` only reads code. Cursor enforces that with `readonly`, and OpenCode with `permission: edit: deny`. In Claude Code they have no edit or write tools, but Bash can still write files, so permission prompts are the real guard.
 
 ## Contributing
 

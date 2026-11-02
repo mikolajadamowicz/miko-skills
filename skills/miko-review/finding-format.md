@@ -4,7 +4,7 @@ Every review lens returns its findings in this format, so the `miko-review` skil
 
 ```
 - file: <path>:<line or line range>
-  lens: <truth | deep-modules | senior | minimal | verify>
+  lens: <the value your lens's SKILL.md gives>
   check: <the check's name from the lens>
   severity: <Block | Fix | Ask>
   confidence: <0-100>
@@ -24,13 +24,13 @@ How sure you are that the problem is real, not how bad it is.
 
 - **90-100**: you read the code path and can name the input that breaks it, or you ran it.
 - **70-89**: the problem follows from code you read, but depends on a caller or config you did not fully trace.
-- **Below 70**: a hunch or a style preference. Report it only if the user asked for everything.
+- **Below 70**: a hunch. Report it only if the prompt or the user asks for every finding.
 
 ## Rules
 
 - Cite a real `file:line` from the current head. No finding without a location.
 - Describe the scenario, not the category. "A tip with `../` reaches `join(dir, name)` at `fetch.ts:42`", not "possible path traversal".
 - When a problem shows up at several call sites, report one finding at the owner, listing the sites.
-- Return at most 12 findings. Keep every Block, then the highest-confidence Fix and Ask findings, and add one line saying how many you left out.
+- Return at most 12 findings, unless the prompt or the user asks for every finding. Keep every Block, then the highest-confidence Fix and Ask findings, and add one line saying how many you left out.
 - Skip what a linter or formatter would catch, and style preferences with no scenario where they cause harm.
 - If you found nothing, return `No findings.` and the checks you ran.

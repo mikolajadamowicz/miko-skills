@@ -52,14 +52,15 @@ The body's skill search list covers project and user skill directories for all t
 
 One commit adds all of:
 
-1. `skills/review-<lens>/SKILL.md`, with the Setup section the other lenses use and findings in `finding-format.md`.
+1. `skills/review-<lens>/SKILL.md`, with the Setup section the other lenses use, findings in `finding-format.md`, and a line telling the lens to return `lens: <lens>`.
 2. `agents/<lens>-reviewer.md`, copied from an existing agent of the same kind (reading or running).
 3. A row in the lens table in `skills/miko-review/SKILL.md`.
 4. A row in the README skill table.
+5. The lens in the `description` of all three manifests, plus the version bump.
 
 ### Plugin manifests agree
 
-`name`, `version`, and `description` are equal in `.cursor-plugin/plugin.json` and `.claude-plugin/plugin.json`. Bump `version` in both when skills or agents change.
+`name`, `version`, and `description` are equal in `.cursor-plugin/plugin.json` and `.claude-plugin/plugin.json`, and `description` also matches `plugins[0].description` in `.claude-plugin/marketplace.json`. Bump `version` in both plugin files when skills or agents change.
 
 ## Before committing
 

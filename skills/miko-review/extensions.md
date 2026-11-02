@@ -10,7 +10,7 @@ Each layer holds files named after the skill they extend, such as `review-senior
 | --- | --- | --- |
 | Private | `~/.config/miko-skills/<skill>.md` | Your private skills repo. Clone it anywhere and symlink the directory to `~/.config/miko-skills`. |
 | Project | `<repo>/.miko-skills/<skill>.md` | The project repo, committed |
-| Local | `<repo>/.miko-skills/local/<skill>.md` | This machine only. Add `.miko-skills/local/` to `.git/info/exclude`. |
+| Local | `<repo>/.miko-skills/local/<skill>.md` | This machine only. Keep it out of git with `echo .miko-skills/local/ >> "$(git rev-parse --git-path info/exclude)"`, which also works in a worktree. |
 
 `<repo>` is `git rev-parse --show-toplevel`. Read only the files for the skill you are running, not the whole directory.
 
