@@ -54,31 +54,39 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
    - When two lenses disagree (one says add a guard, another says remove it), keep both and say they conflict.
    - Check every Block finding yourself by opening the cited lines. Downgrade or drop it if the code does not show the problem.
    - Collect the `Extensions` and `Conflicts` lines from every lens, plus your own.
-6. **Report** in chat using the layout below. Never post to GitHub.
+6. **Gate.** Show the user only what matters most.
+   - Group findings with the same root cause into one, listing every site.
+   - Drop findings with no concrete scenario where something breaks or drifts, style preferences, and anything a linter or formatter would catch.
+   - Sort by severity, then by confidence.
+   - Show every Block, the top 8 Fix, and the top 5 Ask. Hide the rest and keep them: if the user asks to see everything, list them in the same layout.
+   - Pick the verdict: `Blocked` when any Block is left, `Fix first` when any Fix is left, otherwise `Ship it`.
+7. **Report** in chat using the layout below. Never post to GitHub.
 
 ## Report
 
 ```
-Review of <branch or PR> against <base> — <N> files, +<added>/-<removed>
-Lenses: truth, deep-modules, senior, minimal, verify (<skipped lens: reason>)
+<Blocked | Fix first | Ship it>: <one sentence on the main reason>
+<branch or PR> vs <base> · <N> files, +<added>/-<removed> · lenses: <lenses run> (<skipped lens: reason>)
 Extensions: <each file applied, with the skills that used it, or "none">
 
 Conflicts
 - `<extension file>:<line>` wants <what>; kept <the skill rule>. <or: local extension is tracked by git>
 
 Block
-- `<file>:<line>` [<lens>] <what is wrong and when it breaks>. Fix: <concrete change at the owning site>.
+1. `<file>:<line>` <what is wrong and when it breaks>. Fix: <concrete change at the owning site>. [<lenses>]
 
 Fix
-- ...
+1. ...
 
 Ask
-- ...
+1. <question> [<lenses>]
 
 Verified
 - <behaviour>: <command run> → <observed result>. <works | broken | could not run: why>
+
+<N> minor findings hidden. Ask "show all" to see them.
 ```
 
-- Sort each section by confidence, highest first.
-- Omit empty sections. If nothing survives the filter, say so in one line.
+- Number findings within each section so the user can answer "fix Block 1 and Fix 3".
+- Omit empty sections and the hidden line when nothing is hidden. If nothing survives the gate, give the verdict line and stop.
 - Keep each finding to one or two sentences. The user can ask for detail.
