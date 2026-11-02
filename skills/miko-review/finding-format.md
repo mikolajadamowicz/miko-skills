@@ -24,7 +24,7 @@ How sure you are that the problem is real, not how bad it is.
 
 - **90-100**: you read the code path and can name the input that breaks it, or you ran it.
 - **70-89**: the problem follows from code you read, but depends on a caller or config you did not fully trace.
-- **Below 70**: a hunch or a style preference. Report it only if the user asked for everything.
+- **Below 70**: a hunch or a style preference. When `miko-review` started you, report it, and `miko-review` holds it back until the user asks for everything. On your own, report it only if the user asked for everything.
 
 ## Rules
 

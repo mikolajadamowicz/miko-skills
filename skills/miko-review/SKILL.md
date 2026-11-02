@@ -51,18 +51,19 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
 
    The five reading lenses only read; tell them not to edit files. `review-verify` may run commands but must not edit tracked files, commit, or push.
 5. **Merge.**
-   - Drop findings with confidence below 70.
+   - Set aside findings with confidence below 70.
    - Merge findings that point at the same `file:line` and the same underlying problem. Keep the clearer wording and list every lens that raised it.
    - When two lenses disagree (one says add a guard, another says remove it), keep both and say they conflict.
    - Check every Block finding yourself by opening the cited lines. Downgrade or drop it if the code does not show the problem.
    - Collect the `Extensions` and `Conflicts` lines from every lens, plus your own.
+   - Add up the findings each lens says it left out at its limit.
    - Keep every entry from the `review-verify` report for the Verified section.
    - Record any lens that failed or returned nothing. It did not pass.
 6. **Gate.** Show the user only what matters most.
    - Group findings with the same root cause into one, listing every site.
-   - Drop findings with no concrete scenario where something breaks or drifts, style preferences, and anything a linter or formatter would catch.
+   - Set aside findings with no concrete scenario where something breaks or drifts, style preferences, and anything a linter or formatter would catch.
    - Sort by severity, then by confidence.
-   - Show every Block, the top 8 Fix, and the top 5 Ask. Hide the rest and keep them: if the user asks to see everything, list them in the same layout.
+   - Show every Block, the top 8 Fix, and the top 5 Ask. Hide the rest. If the user asks to see everything, list every hidden and set-aside finding in the same layout, and say how many the lenses left out. Getting those means running the lens again with a focus on what it left out.
    - Pick the verdict: `Blocked` when any Block is left, `Fix first` when any Fix is left, `Not verified` when a lens failed or `review-verify` has any `could not run` entry, otherwise `Ship it`.
 7. **Report** in chat using the layout below. Never post to GitHub.
 
@@ -88,9 +89,9 @@ Ask
 Verified
 - <behaviour>: <command run> → <observed result>. <works | broken | could not run: why>
 
-<N> minor findings hidden. Ask "show all" to see them.
+<N> Fix and <M> Ask findings hidden, <K> set aside as low confidence or minor, <L> left out by lenses. Ask "show all" to see them.
 ```
 
 - Number findings within each section so the user can answer "fix Block 1 and Fix 3".
-- Omit empty sections and the hidden line when nothing is hidden. If no findings survive the gate and there are no Verified entries, give the verdict line and stop.
+- Omit empty sections, zero counts in the hidden line, and the whole line when all its counts are zero. If no findings survive the gate and there are no Verified entries, give the verdict line and the hidden line, if any, and stop.
 - Keep each finding to one or two sentences. The user can ask for detail.
