@@ -1,6 +1,6 @@
 # Finding format
 
-Every review lens returns its findings in this format, so the `miko-review` skill can merge them.
+Every review lens returns its findings in this format, so the `miko-review` skill can merge them. Put the `Extensions` and `Conflicts` lines from [extensions.md](extensions.md) first.
 
 ```
 - file: <path>:<line or line range>
@@ -31,4 +31,6 @@ How sure you are that the problem is real, not how bad it is.
 - Cite a real `file:line` from the current head. No finding without a location.
 - Describe the scenario, not the category. "A tip with `../` reaches `join(dir, name)` at `fetch.ts:42`", not "possible path traversal".
 - When a problem shows up at several call sites, report one finding at the owner, listing the sites.
+- Return at most 12 findings. Keep every Block, then the highest-confidence Fix and Ask findings, and add one line saying how many you left out.
+- Skip what a linter or formatter would catch, and style preferences with no scenario where they cause harm.
 - If you found nothing, return `No findings.` and the checks you ran.

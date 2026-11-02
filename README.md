@@ -2,7 +2,7 @@
 
 Code review, skill-authoring, and prose-cleanup skills, plus review subagents, for Cursor, Claude Code, and OpenCode.
 
-Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat.
+Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat. The report opens with a verdict and shows every Block finding, the top 8 Fix findings, and the top 5 Ask findings. Ask "show all" to see the rest.
 
 | Skill | Checks |
 | --- | --- |
@@ -15,6 +15,16 @@ Run `/miko-review` on a branch. It starts one subagent per lens in parallel, mer
 
 To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/miko-review/review-context-template.md).
 
+To add your own instructions to one review skill without forking it, write an extension file named after the skill, such as `review-senior.md`. Extensions add checks and context. They cannot skip steps or relax rules, and the report lists every extension applied and every conflict.
+
+| Layer | Path |
+| --- | --- |
+| Private, all your repos | `~/.config/miko-skills/<skill>.md` (symlink the directory to a private repo clone) |
+| Project, committed | `.miko-skills/<skill>.md` |
+| Local, this machine | `.miko-skills/local/<skill>.md` (add it to `.git/info/exclude`) |
+
+[extensions.md](skills/miko-review/extensions.md) has the full rules and an example.
+
 The other skills are not part of review:
 
 | Skill | Use it for |
@@ -22,6 +32,7 @@ The other skills are not part of review:
 | `skill-examples` | Indexes six public skill repos (Matt Pocock's skills, Superpowers, pstack, gstack, ECC, Callstack's software factory). The agent reads and cites them when searching for an existing skill, writing a new one, or reviewing one. |
 | `humanize` | Removes AI writing patterns from technical prose: PR descriptions, docs, code comments, reports |
 | `unslop` | Removes AI writing patterns from casual prose: chat, Slack, email, social posts |
+| `simple-explain` | Explains a concept, code, a review finding, or a decision in plain words with one example. Run `/simple-explain <topic>`, optionally with `normal` or `deep` for more detail. |
 
 ## Install
 
