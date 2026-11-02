@@ -20,6 +20,7 @@ Code review, skill-authoring, and prose-cleanup skills, plus review subagents, t
 - Every review rule lives in a skill. Agent bodies only say which skill to follow and where to find it. A rule written in an agent body is missing from the fallback path, where `miko-review` starts general-purpose subagents that read only the skills.
 - Write skills in harness-neutral words: "start a subagent", "general-purpose subagent", "read the file". Name a harness's tool or path only in a table that covers all three.
 - Skill `name` matches its directory, lowercase with hyphens. OpenCode rejects a mismatch.
+- Every review skill loads its own extensions through `extensions.md` in `miko-review`. Users customise skills through extension files, never by editing installed copies, so a new rule that users may want to change still belongs in the skill.
 - Skills reference each other through the sibling directory (`finding-format.md` in the sibling `miko-review` skill directory), never by absolute or harness-specific path. Installed skills always sit side by side.
 
 ### Agent frontmatter is the intersection

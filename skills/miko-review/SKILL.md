@@ -34,7 +34,7 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
    - Default: `git diff $(git merge-base origin/HEAD HEAD)...HEAD` plus uncommitted changes (`git diff HEAD`). Fall back to `origin/main` or `main` if `origin/HEAD` is not set.
    - If the user names a PR, use `gh pr diff <n>` and `gh pr view <n>`.
    - If the diff is empty, say so and stop.
-2. **Read repo context.** If the repo has a `REVIEW.md` at its root, read it. It lists helpers to reuse, module owners, repo rules, and how to run things. Pass its path to every lens. [review-context-template.md](review-context-template.md) shows the shape.
+2. **Read repo context.** If the repo has a `REVIEW.md` at its root, read it. It lists helpers to reuse, module owners, repo rules, and how to run things. Pass its path to every lens. [review-context-template.md](review-context-template.md) shows the shape. Then load this skill's own extensions as [extensions.md](extensions.md) describes. Each lens loads its own.
 3. **Pick lenses** with the table above. Tell the user in one line which lenses run and why any are skipped.
 4. **Start one subagent per lens, all in the same turn so they run in parallel.**
    - If the lens's subagent from the table is available as a subagent type, start that type.
@@ -42,7 +42,7 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
 
    Each prompt contains:
    - the absolute path to the lens's `SKILL.md`, with the instruction to read it in full first and follow it
-   - the absolute path to [finding-format.md](finding-format.md)
+   - the absolute paths to [finding-format.md](finding-format.md) and [extensions.md](extensions.md)
    - the repo path, the base ref, and how to get the diff (do not paste a large diff; let the lens run git)
    - the `REVIEW.md` path, if there is one
    - any focus the user asked for
@@ -53,6 +53,7 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
    - Merge findings that point at the same `file:line` and the same underlying problem. Keep the clearer wording and list every lens that raised it.
    - When two lenses disagree (one says add a guard, another says remove it), keep both and say they conflict.
    - Check every Block finding yourself by opening the cited lines. Downgrade or drop it if the code does not show the problem.
+   - Collect the `Extensions` and `Conflicts` lines from every lens, plus your own.
 6. **Report** in chat using the layout below. Never post to GitHub.
 
 ## Report
@@ -60,6 +61,10 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
 ```
 Review of <branch or PR> against <base> — <N> files, +<added>/-<removed>
 Lenses: truth, deep-modules, senior, minimal, verify (<skipped lens: reason>)
+Extensions: <each file applied, with the skills that used it, or "none">
+
+Conflicts
+- `<extension file>:<line>` wants <what>; kept <the skill rule>. <or: local extension is tracked by git>
 
 Block
 - `<file>:<line>` [<lens>] <what is wrong and when it breaks>. Fix: <concrete change at the owning site>.

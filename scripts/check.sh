@@ -19,6 +19,7 @@ for dir in skills/*/; do
   [ "$name" = "$skill" ] || err "skills/$skill/SKILL.md has name '$name'; it must match its directory"
   [[ "$skill" == review-* ]] || continue
   rg -q "\`$skill\`" skills/miko-review/SKILL.md || err "skills/miko-review/SKILL.md does not list lens $skill"
+  rg -q 'extensions\.md' "$dir/SKILL.md" || err "skills/$skill/SKILL.md does not load its extensions"
   rg -q -l "^  - $skill$" agents/ >/dev/null || err "no agent in agents/ preloads skill $skill"
 done
 

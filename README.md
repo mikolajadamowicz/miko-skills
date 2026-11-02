@@ -15,6 +15,16 @@ Run `/miko-review` on a branch. It starts one subagent per lens in parallel, mer
 
 To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/miko-review/review-context-template.md).
 
+To add your own instructions to one review skill without forking it, write an extension file named after the skill, such as `review-senior.md`. Extensions add checks and context. They cannot skip steps or relax rules, and the report lists every extension applied and every conflict.
+
+| Layer | Path |
+| --- | --- |
+| Private, all your repos | `~/.config/miko-skills/<skill>.md` (symlink the directory to a private repo clone) |
+| Project, committed | `.miko-skills/<skill>.md` |
+| Local, this machine | `.miko-skills/local/<skill>.md` (add it to `.git/info/exclude`) |
+
+[extensions.md](skills/miko-review/extensions.md) has the full rules and an example.
+
 The other skills are not part of review:
 
 | Skill | Use it for |

@@ -1,6 +1,6 @@
 # Finding format
 
-Every review lens returns its findings in this format, so the `miko-review` skill can merge them.
+Every review lens returns its findings in this format, so the `miko-review` skill can merge them. Put the `Extensions` and `Conflicts` lines from [extensions.md](extensions.md) first.
 
 ```
 - file: <path>:<line or line range>
