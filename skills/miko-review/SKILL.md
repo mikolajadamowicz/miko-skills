@@ -56,19 +56,21 @@ Behaviour changes are code that can be executed: a function, command, endpoint, 
    - When two lenses disagree (one says add a guard, another says remove it), keep both and say they conflict.
    - Check every Block finding yourself by opening the cited lines. Downgrade or drop it if the code does not show the problem.
    - Collect the `Extensions` and `Conflicts` lines from every lens, plus your own.
+   - Keep every entry from the `review-verify` report for the Verified section.
+   - Record any lens that failed or returned nothing. It did not pass.
 6. **Gate.** Show the user only what matters most.
    - Group findings with the same root cause into one, listing every site.
    - Drop findings with no concrete scenario where something breaks or drifts, style preferences, and anything a linter or formatter would catch.
    - Sort by severity, then by confidence.
    - Show every Block, the top 8 Fix, and the top 5 Ask. Hide the rest and keep them: if the user asks to see everything, list them in the same layout.
-   - Pick the verdict: `Blocked` when any Block is left, `Fix first` when any Fix is left, otherwise `Ship it`.
+   - Pick the verdict: `Blocked` when any Block is left, `Fix first` when any Fix is left, `Not verified` when a lens failed or `review-verify` has any `could not run` entry, otherwise `Ship it`.
 7. **Report** in chat using the layout below. Never post to GitHub.
 
 ## Report
 
 ```
-<Blocked | Fix first | Ship it>: <one sentence on the main reason>
-<branch or PR> vs <base> · <N> files, +<added>/-<removed> · lenses: <lenses run> (<skipped lens: reason>)
+<Blocked | Fix first | Not verified | Ship it>: <one sentence on the main reason>
+<branch or PR> vs <base> · <N> files, +<added>/-<removed> · lenses: <lenses run> (<skipped or failed lens: reason>)
 Extensions: <each file applied, with the skills that used it, or "none">
 
 Conflicts
@@ -90,5 +92,5 @@ Verified
 ```
 
 - Number findings within each section so the user can answer "fix Block 1 and Fix 3".
-- Omit empty sections and the hidden line when nothing is hidden. If nothing survives the gate, give the verdict line and stop.
+- Omit empty sections and the hidden line when nothing is hidden. If no findings survive the gate and there are no Verified entries, give the verdict line and stop.
 - Keep each finding to one or two sentences. The user can ask for detail.
