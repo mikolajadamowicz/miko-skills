@@ -70,7 +70,7 @@ The change is easier to write because the consumer now does part of the job.
 State what the consumer mainly comes here to do, then judge the change against it.
 
 - The change adds steps or attention to the main path for the benefit of a side path.
-- A new feature serves neither the main workflow nor a request in the PR description or linked issue. Ask whether to ship it.
+- A new feature serves neither the main workflow nor a request in the commit messages, PR description, or linked issue. Ask whether to ship it.
 
 ## Severity guide
 

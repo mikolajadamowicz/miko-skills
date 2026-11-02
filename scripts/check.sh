@@ -16,6 +16,9 @@ for key in name version description; do
     || err "$key differs between .cursor-plugin/plugin.json and .claude-plugin/plugin.json"
 done
 plugin="$(field .claude-plugin/plugin.json name)"
+marketplace_description="$(python3 -c "import json; print(json.load(open('.claude-plugin/marketplace.json'))['plugins'][0]['description'])")"
+[ "$marketplace_description" = "$(field .claude-plugin/plugin.json description)" ] \
+  || err "plugin description differs between .claude-plugin/marketplace.json and .claude-plugin/plugin.json"
 
 for dir in skills/*/; do
   skill="$(basename "$dir")"
@@ -23,6 +26,8 @@ for dir in skills/*/; do
   [ "$name" = "$skill" ] || err "skills/$skill/SKILL.md has name '$name'; it must match its directory"
   [[ "$skill" == review-* ]] || continue
   rg -q "\`$skill\`" skills/miko-review/SKILL.md || err "skills/miko-review/SKILL.md does not list lens $skill"
+  rg -q "\`$skill\`" README.md || err "README.md does not list lens $skill"
+  rg -q "\`lens: ${skill#review-}\`" "$dir/SKILL.md" || err "skills/$skill/SKILL.md does not tell the lens to return lens: ${skill#review-}"
   rg -q 'extensions\.md' "$dir/SKILL.md" || err "skills/$skill/SKILL.md does not load its extensions"
   rg -q -l "^  - $skill$" agents/ >/dev/null || err "no agent in agents/ preloads skill $skill"
 done

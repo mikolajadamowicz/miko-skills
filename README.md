@@ -75,7 +75,7 @@ Agents use the parent chat's model. To pin one, set `model:` in the installed ag
 
 ## Read-only reviewers
 
-Five of the lenses only read code. Cursor enforces that with `readonly`, and OpenCode with `permission: edit: deny`. In Claude Code they have no edit or write tools, but Bash can still write files, so permission prompts are the real guard.
+Every lens except `review-verify` only reads code. Cursor enforces that with `readonly`, and OpenCode with `permission: edit: deny`. In Claude Code they have no edit or write tools, but Bash can still write files, so permission prompts are the real guard.
 
 ## Contributing
 
