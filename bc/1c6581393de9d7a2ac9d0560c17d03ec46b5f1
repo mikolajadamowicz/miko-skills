@@ -1,0 +1,39 @@
+skills/miko-review/finding-format.md
+  s_b57296b23c0da0::t_2107d9b2d17ec2 7
+  s_b57296b23c0da0::t_7ab31f55e4679f 27
+  s_b57296b23c0da0::t_211029b770a91f 34
+scripts/check.sh
+  s_b57296b23c0da0::t_90112ba9dd2368 19-21
+  s_b57296b23c0da0::t_a84955f0ee4bdc 29-30
+README.md
+  s_b57296b23c0da0::t_4f2f870771e41d 78
+skills/review-experience/SKILL.md
+  s_b57296b23c0da0::t_a3ea33b3a0bca6 73
+skills/miko-review/SKILL.md
+  s_b57296b23c0da0::t_d9e10cc7e7cbac 50,52
+  s_b57296b23c0da0::t_208894a8f60089 60
+  s_b57296b23c0da0::t_c6342db5d4dd30 65
+  s_b57296b23c0da0::t_7f763fdea442cc 4-6
+  s_b57296b23c0da0::t_180f10b0d1cf10 27
+  s_b57296b23c0da0::t_77a7c4eec9cbf1 19
+  s_b57296b23c0da0::t_e9022153bceb22 95
+  s_b57296b23c0da0::t_b098a4330965a8 91
+AGENTS.md
+  s_b57296b23c0da0::t_208415d51a10c6 55,59,63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bc1c6581393de9d7a2ac9d0560c17d03ec46b5f1",
+  "prompts": {},
+  "sessions": {
+    "s_b57296b23c0da0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3afc5287-ecf6-4a0e-b0be-c817b362cc35",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
