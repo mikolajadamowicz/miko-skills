@@ -3,6 +3,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+for tool in rg python3; do
+  command -v "$tool" >/dev/null || { echo "check.sh needs $tool, which is not on PATH. Nothing was checked." >&2; exit 2; }
+done
+
 fail=0
 err() { echo "FAIL: $*"; fail=1; }
 
