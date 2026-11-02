@@ -32,6 +32,7 @@ The other skills are not part of review:
 | `skill-examples` | Indexes six public skill repos (Matt Pocock's skills, Superpowers, pstack, gstack, ECC, Callstack's software factory). The agent reads and cites them when searching for an existing skill, writing a new one, or reviewing one. |
 | `humanize` | Removes AI writing patterns from technical prose: PR descriptions, docs, code comments, reports |
 | `unslop` | Removes AI writing patterns from casual prose: chat, Slack, email, social posts |
+| `simple-explain` | Explains a concept, code, a review finding, or a decision in plain words with one example. Run `/simple-explain <topic>`, optionally with `normal` or `deep` for more detail. |
 
 ## Install
 
