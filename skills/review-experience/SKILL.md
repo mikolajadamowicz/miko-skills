@@ -3,8 +3,8 @@ name: review-experience
 description: >-
   Review lens for whoever consumes a change: options that have no reason to
   exist, failures that leave the consumer stuck, actions with no feedback, work
-  pushed onto the consumer for implementation convenience, and features that get
-  in the way of the main workflow. Run by the miko-review skill when a diff changes
+  pushed onto the consumer for implementation convenience, UI that some people
+  cannot use, and features that get in the way of the main workflow. Run by the miko-review skill when a diff changes
   something a consumer touches, or on its own when the user asks to review a
   change's UX, CLI, or API from the consumer's side.
 ---
@@ -66,7 +66,16 @@ The change is easier to write because the consumer now does part of the job.
 - A return value or callback the consumer has to unpack or check in the same way at every call site.
 - The common case takes more input than the rare case.
 
-### 5. The main workflow
+### 5. People who cannot use it
+
+For a UI change, check who is shut out. Name the element and the value.
+
+- Contrast below WCAG AA against the real background: 4.5:1 for normal-size text, including text inside buttons and other controls; 3:1 for large text and for non-text parts such as icons, control borders, and focus indicators. Check every theme the diff touches, including a dark mode.
+- Colour as the only signal, such as errors shown only in red, or links set apart from body text by hue alone, with no underline or other non-colour cue and less than 3:1 contrast against the surrounding text.
+- An action that needs a mouse: no keyboard path, no visible focus, or a focus outline removed without a replacement.
+- A control or image with no accessible name: an icon button with no label, an image with no `alt`.
+
+### 6. The main workflow
 
 State what the consumer mainly comes here to do, then judge the change against it.
 
@@ -76,7 +85,7 @@ State what the consumer mainly comes here to do, then judge the change against i
 ## Severity guide
 
 - **Block**: a failure that looks like success; a failure or destructive action that loses the consumer's work with no warning.
-- **Fix**: a failure with no next step, a slow or silent action, an option with an obvious default, work the code could do itself.
+- **Fix**: a UI element some people cannot use (contrast, colour as the only signal, no keyboard path), a failure with no next step, a slow or silent action, an option with an obvious default, work the code could do itself.
 - **Ask**: whether a feature belongs, or whether a tradeoff on the main workflow is worth it. Phrase these as questions.
 
 Return findings with `lens: experience` and `check:` set to the check name above.
