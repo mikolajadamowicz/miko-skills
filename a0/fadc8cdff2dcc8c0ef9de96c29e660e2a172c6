@@ -1,0 +1,27 @@
+.claude-plugin/plugin.json
+  s_3e2e762406bf2b::t_14c0bea83c75fb 3
+skills/review-experience/SKILL.md
+  s_3e2e762406bf2b::t_1111d7b61c470c 6-7
+  s_3e2e762406bf2b::t_73358036942548 69-78
+  s_3e2e762406bf2b::t_06d591ca92b31f 88
+.cursor-plugin/plugin.json
+  s_3e2e762406bf2b::t_14c0bea83c75fb 4
+README.md
+  s_3e2e762406bf2b::t_1111d7b61c470c 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a0fadc8cdff2dcc8c0ef9de96c29e660e2a172c6",
+  "prompts": {},
+  "sessions": {
+    "s_3e2e762406bf2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0472cc11-4d89-4d26-97ef-7cd284b9d19b",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
