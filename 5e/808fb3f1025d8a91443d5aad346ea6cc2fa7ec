@@ -10,6 +10,12 @@ README.md
   s_3e2e762406bf2b::t_7c9306a1278923 36-37
 skills/miko-review/extensions.md
   s_3e2e762406bf2b::t_7c9306a1278923 3
+.cursor-plugin/plugin.json
+  s_3e2e762406bf2b::t_e22d6fd9a80a57 4-5
+.claude-plugin/marketplace.json
+  s_3e2e762406bf2b::t_e22d6fd9a80a57 11
+.claude-plugin/plugin.json
+  s_3e2e762406bf2b::t_e22d6fd9a80a57 3-4
 ---
 {
   "schema_version": "authorship/3.0.0",
