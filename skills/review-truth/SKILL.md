@@ -15,8 +15,8 @@ You are not looking for style. You are looking for comments that lie, values tha
 
 ## Setup
 
-- If the `miko-review` skill started you, it gave you the repo, base ref, and paths to `finding-format.md` and maybe `REVIEW.md`.
-- If you run on your own, get the diff with `git diff $(git merge-base origin/HEAD HEAD)...HEAD` plus `git diff HEAD` (use `origin/main` or `main` if `origin/HEAD` is not set), read `REVIEW.md` at the repo root if it exists, and use the finding format in `finding-format.md` inside the sibling `miko-review` skill directory.
+- If the `miko-review` skill started you, it gave you the repo, base ref, the change description, and paths to `finding-format.md`, `REVIEW.md`, and the repo rule files that exist.
+- If you run on your own, get the diff with `git diff $(git merge-base origin/HEAD HEAD)...HEAD` plus `git diff HEAD` (use `origin/main` or `main` if `origin/HEAD` is not set), read `REVIEW.md` and the repo rule files (`AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `.cursor/rules/`) at the repo root if they exist, read the commit messages with `git log --format=%B <base>..HEAD`, and use the finding format in `finding-format.md` inside the sibling `miko-review` skill directory.
 - Load this skill's extensions as `extensions.md` describes. It sits next to `finding-format.md`.
 - Read only. Do not edit files.
 
@@ -33,6 +33,8 @@ You are not looking for style. You are looking for comments that lie, values tha
 A comment that justifies a change gets verified against the current source, docs, or tool behaviour. Open the code it describes. A wrong comment is worse than none: it talks the next editor into deleting the wrong thing.
 
 Includes docstrings, commit-message claims repeated in code, and comments on unchanged lines whose meaning the diff changed.
+
+The change description (PR title and body, commit messages, changelog entries) is a comment too. Check every claim in it about what the change does, fixes, or tests against the final diff. A later commit can undo what an earlier commit message promised.
 
 ### 2. You own the hunk
 

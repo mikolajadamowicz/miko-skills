@@ -1,6 +1,6 @@
 {
   "name": "miko-skills",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Multi-lens code review (truth and ownership, deep modules, senior design, minimal change, consumer experience, verify-by-running), reviewer benchmarking, PR comment drafting, an index of example skill repos for writing skills, and prose cleanup (humanize, unslop).",
   "author": {
     "name": "Mikołaj Adamowicz"
