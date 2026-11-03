@@ -30,7 +30,7 @@ The other skills are not part of review:
 
 | Skill | Use it for |
 | --- | --- |
-| `skill-examples` | Indexes six public skill repos (Matt Pocock's skills, Superpowers, pstack, gstack, ECC, Callstack's software factory). The agent reads and cites them when searching for an existing skill, writing a new one, or reviewing one. |
+| `skill-examples` | Indexes seven public skill sets (Matt Pocock's skills, Superpowers, pstack, Cursor's team kit, gstack, ECC, Callstack's software factory). The agent reads and cites them when searching for an existing skill, writing a new one, or reviewing one. |
 | `humanize` | Removes AI writing patterns from technical prose: PR descriptions, docs, code comments, reports |
 | `unslop` | Removes AI writing patterns from casual prose: chat, Slack, email, social posts |
 | `benchmark-reviewers` | Runs `miko-review` and other reviewers (CodeRabbit, Cursor, Claude Code, OpenCode) on the same PR, has a blinded judge check every finding against the code, and proposes rule changes for what `miko-review` missed. Run `/benchmark-reviewers <PR>`. |
