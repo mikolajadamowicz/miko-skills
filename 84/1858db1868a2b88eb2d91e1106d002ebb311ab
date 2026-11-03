@@ -1,20 +1,32 @@
 skills/miko-review/SKILL.md
   s_3e2e762406bf2b::t_612f0226cbbdaf 38-39
   s_3e2e762406bf2b::t_42cd98977dd25f 49
+  s_3e2e762406bf2b::t_6476482a9db385 50
 skills/review-truth/SKILL.md
   s_3e2e762406bf2b::t_7e4e3377322939 18
   s_3e2e762406bf2b::t_3259d1a5fc8791 37
   s_3e2e762406bf2b::t_4029bb19d00b17 38
+  s_3e2e762406bf2b::t_aa50a3710a6352 19
 skills/review-senior/SKILL.md
   s_3e2e762406bf2b::t_7e4e3377322939 17
+  s_3e2e762406bf2b::t_aa50a3710a6352 18
 skills/review-minimal/SKILL.md
   s_3e2e762406bf2b::t_7e4e3377322939 18
+  s_3e2e762406bf2b::t_aa50a3710a6352 19
 skills/review-verify/SKILL.md
   s_3e2e762406bf2b::t_7e4e3377322939 17
+  s_3e2e762406bf2b::t_aa50a3710a6352 18
 skills/miko-review/finding-format.md
   s_3e2e762406bf2b::t_b523aea45b2b50 36
 skills/review-deep-modules/SKILL.md
   s_3e2e762406bf2b::t_7e4e3377322939 18
+  s_3e2e762406bf2b::t_aa50a3710a6352 19
+.cursor-plugin/plugin.json
+  s_3e2e762406bf2b::t_6a670d8e1f1455 4
+.claude-plugin/plugin.json
+  s_3e2e762406bf2b::t_6a670d8e1f1455 3
+skills/review-experience/SKILL.md
+  s_3e2e762406bf2b::t_aa50a3710a6352 20-21
 ---
 {
   "schema_version": "authorship/3.0.0",
