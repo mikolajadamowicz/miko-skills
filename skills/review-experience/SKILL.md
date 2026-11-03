@@ -70,8 +70,8 @@ The change is easier to write because the consumer now does part of the job.
 
 For a UI change, check who is shut out. Name the element and the value.
 
-- Text or icons below WCAG AA contrast against their real background: 4.5:1 for body text, 3:1 for large text and UI controls. Check every theme the diff touches, including a dark mode.
-- Colour as the only signal, such as links with no underline or errors shown only in red.
+- Contrast below WCAG AA against the real background: 4.5:1 for normal-size text, including text inside buttons and other controls; 3:1 for large text and for non-text parts such as icons, control borders, and focus indicators. Check every theme the diff touches, including a dark mode.
+- Colour as the only signal, such as errors shown only in red, or links set apart from body text by hue alone, with no underline or other non-colour cue and less than 3:1 contrast against the surrounding text.
 - An action that needs a mouse: no keyboard path, no visible focus, or a focus outline removed without a replacement.
 - A control or image with no accessible name: an icon button with no label, an image with no `alt`.
 
