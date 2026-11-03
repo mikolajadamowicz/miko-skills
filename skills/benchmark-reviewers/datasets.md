@@ -27,7 +27,7 @@ All three are MIT-licensed. Their PRs come from public projects that may be in a
 ## KyleSau/reviewbench
 
 - Cases are unified diffs in `datasets/v1/cases`, not repos. Lenses that read callers or run code (`review-verify`, most of `review-minimal` and `review-deep-modules`) have nothing to work with, so use it mainly to count findings on the 6 clean PRs.
-- Its CLI (`reviewbench run`, `reviewbench gate`) runs its own reviewers. Running `miko-review` means applying each diff to an empty git repo first.
+- Its CLI (`reviewbench run`, `reviewbench gate`) runs its own reviewers. A diff cannot be applied without the files it changes, so give `miko-review` the diff file itself as the change to review, and count only its findings on the clean cases.
 
 ## Not included
 
