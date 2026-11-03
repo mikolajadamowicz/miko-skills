@@ -60,6 +60,7 @@ State the rule the diff enforces, then find the one place that should enforce it
 ### 5. Tests that discriminate
 
 - Each new test must fail if the production change were reverted. Name the line whose revert breaks it.
+- Each branch, error path, and guard the diff adds needs a test that takes it, including the case that flips it: a `has_more` that is true, a fallback that fires, a limit that is hit. Name every untested one. A test helper that always sets two inputs equal hides the case where they differ.
 - Tests of the platform or library instead of your code do not count.
 - Near-identical tests should be one table-driven test.
 - Fakes should fail the way production fails. Asserting "not called" needs the fake's call log checked.

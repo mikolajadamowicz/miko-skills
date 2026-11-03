@@ -25,10 +25,10 @@ Read every touched hunk and its callers. For scalability, estimate the realistic
 
 ## Scalability
 
-1. **Work that grows with input.** Nested loops over the same collection, repeated `find`/`includes` inside a loop, sorting inside a loop, re-reading a file or re-parsing per item. Name the input that makes it slow.
+1. **Work that grows with input.** Nested loops over the same collection, repeated `find`/`includes` inside a loop, sorting inside a loop, re-reading a file or re-parsing per item. A query run on every request that counts or scans a whole table (`COUNT(*)` for a total, a filter on an unindexed column) grows with the table, not the page. Name the input that makes it slow.
 2. **N+1 calls.** A network, database, subprocess, or filesystem call inside a loop that could be one batched call.
 3. **Unbounded growth.** Lists, caches, maps, logs, or buffers that only grow; reading a whole file or response into memory when it can be large; pagination that is ignored.
-4. **Missing limits on external calls.** No timeout, no retry limit, retries without backoff, polling without a deadline, no cancellation.
+4. **Missing limits on external calls.** No timeout, no retry limit, retries without backoff, polling without a deadline, no cancellation. A handler that drops the caller's context or signal (`context.Background()`, a fresh `AbortController`) keeps working after the client has gone.
 5. **Concurrency.** Shared mutable state across async tasks, check-then-act races on files or records, unbounded `Promise.all` over a large list, missing locks or idempotency where two runs can overlap.
 6. **Blocking the hot path.** Synchronous filesystem or CPU-heavy work in a request handler, event loop, or UI thread.
 
