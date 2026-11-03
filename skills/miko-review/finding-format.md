@@ -33,5 +33,5 @@ How sure you are that the problem is real, not how bad it is.
 - When a problem shows up at several call sites, report one finding at the owner, listing the sites.
 - Return at most 12 findings, unless the prompt or the user asks for every finding. Keep every Block, then the highest-confidence Fix and Ask findings, and add one line saying how many you left out.
 - Skip what a linter or formatter would catch, and style preferences with no scenario where they cause harm.
-- A rule in `REVIEW.md` or a repo rule file (`AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, files in `.cursor/rules/`) that the diff breaks is a finding. Name the file and rule in `check`, for example `check: CLAUDE.md: resolve paths before fs calls`.
+- A rule in `REVIEW.md` or a repo rule file (listed under "Repo rule files" in the `miko-review` skill) that the diff breaks is a finding. Name the file and rule in `check`, for example `check: CONTRIBUTING.md: resolve paths before fs calls`.
 - If you found nothing, return `No findings.` and the checks you ran.
