@@ -8,7 +8,7 @@
     {
       "name": "miko-skills",
       "source": "./",
-      "description": "Multi-lens code review (truth and ownership, deep modules, senior design, minimal change, consumer experience, verify-by-running), an index of example skill repos for writing skills, and prose cleanup (humanize, unslop)."
+      "description": "Multi-lens code review (truth and ownership, deep modules, senior design, minimal change, consumer experience, verify-by-running), reviewer benchmarking, PR comment drafting, an index of example skill repos for writing skills, and prose cleanup (humanize, unslop)."
     }
   ]
 }
