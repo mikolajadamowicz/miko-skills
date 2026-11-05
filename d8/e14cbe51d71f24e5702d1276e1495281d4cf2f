@@ -1,0 +1,32 @@
+skills/improve-skills/SKILL.md
+  s_961ad1477a9b2c::t_4a1aee62a719cd 1-80
+skills/improve-skills/extract-history.py
+  s_961ad1477a9b2c::t_dc0f36aa4788c9 23,25-29,69,74-76,97-101,103-104,119-121,186-188,217-220,286-287
+  s_961ad1477a9b2c::t_827c4671da46b0 1-22,24,30-68,70-73,77-96,102,105-118,122-185,189-216,221-285,288-295
+.claude-plugin/marketplace.json
+  s_961ad1477a9b2c::t_8475c7aec67f4c 11
+.claude-plugin/plugin.json
+  s_961ad1477a9b2c::t_6f20914c765a16 3-4
+.cursor-plugin/plugin.json
+  s_961ad1477a9b2c::t_27c8acf684cfa5 4-5
+README.md
+  s_961ad1477a9b2c::t_2e5c09edcbad65 38
+skills/miko-review/extensions.md
+  s_961ad1477a9b2c::t_47569c24076b09 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d8e14cbe51d71f24e5702d1276e1495281d4cf2f",
+  "prompts": {},
+  "sessions": {
+    "s_961ad1477a9b2c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "697441d2-ac47-4f97-a864-437d6b42b710",
+        "model": "unknown"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
