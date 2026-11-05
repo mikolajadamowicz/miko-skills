@@ -2,7 +2,7 @@
 
 Code review, skill-authoring, and prose-cleanup skills, plus review subagents, for Cursor, Claude Code, and OpenCode.
 
-Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat. The report opens with a verdict and shows every Block finding, the top 8 Fix findings, and the top 5 Ask findings. When findings are left out, the last line counts them, and "show all" lists the hidden findings along with the ones it filtered as low confidence or minor.
+Run `/miko-review` on a branch. It starts one subagent per lens in parallel, merges their findings, and reports in chat. The report opens with a verdict and shows every Block finding, the top 8 Fix findings, and the top 5 Ask findings. On someone else's PR it also picks up to 5 findings worth a comment, and on a re-review it reports the status of each of your earlier asks. When findings are left out, the last line counts them, and "show all" lists the hidden findings along with the ones it filtered as low confidence or minor.
 
 | Skill | Checks |
 | --- | --- |
@@ -14,7 +14,7 @@ Run `/miko-review` on a branch. It starts one subagent per lens in parallel, mer
 | `review-experience` | Options with no reason to exist, failures that leave the consumer stuck, actions with no feedback, work pushed onto the consumer, UI that some people cannot use (contrast, keyboard, colour-only signals) |
 | `review-verify` | Runs new or changed behaviour and reports what happened |
 
-To give the lenses repo-specific context (helpers to reuse, owners, rules, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/miko-review/review-context-template.md).
+To give the lenses repo-specific context (helpers to reuse, owners, rules, what matters most, what to skip, how to run things), add a `REVIEW.md` at the repo root. See the [template](skills/miko-review/review-context-template.md).
 
 To add your own instructions to one review skill without forking it, write an extension file named after the skill, such as `review-senior.md`. Extensions add checks and context. They cannot skip steps or relax rules, and the report lists every extension applied and every conflict.
 
@@ -34,7 +34,7 @@ The other skills are not part of review:
 | `humanize` | Removes AI writing patterns from technical prose: PR descriptions, docs, code comments, reports |
 | `unslop` | Removes AI writing patterns from casual prose: chat, Slack, email, social posts |
 | `benchmark-reviewers` | Runs `miko-review` and other reviewers (CodeRabbit, Cursor, Claude Code, OpenCode) on the same PR, has a blinded judge check every finding against the code, and proposes rule changes for what `miko-review` missed. Run `/benchmark-reviewers <PR>`. |
-| `give-feedback` | Drafts a PR comment or thread reply from a finding, revises it with you, and posts it with `gh` only after you say "post it". |
+| `give-feedback` | Drafts a PR review from findings, with one inline comment per finding and a short summary that counts blockers, fixes, and questions, or a thread reply. It revises them with you and posts with `gh` only after you say "post it". |
 | `simple-explain` | Explains a concept, code, a review finding, or a decision in plain words with one example. Run `/simple-explain <topic>`, optionally with `normal` or `deep` for more detail. |
 
 ## Install
