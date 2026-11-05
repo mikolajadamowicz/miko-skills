@@ -1,0 +1,18 @@
+README.md
+  h_9683addb5f4448 5,37
+skills/give-feedback/SKILL.md
+  h_9683addb5f4448 20,30-31,51
+skills/miko-review/SKILL.md
+  h_9683addb5f4448 47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ff1f62531df860274e4620deb840edf5b6f4c173",
+  "prompts": {},
+  "humans": {
+    "h_9683addb5f4448": {
+      "author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
