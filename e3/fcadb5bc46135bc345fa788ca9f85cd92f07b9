@@ -1,0 +1,19 @@
+skills/improve-skills/extract-history.py
+  s_961ad1477a9b2c::t_9fcaf11f4a9463 69-70,218
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e3fcadb5bc46135bc345fa788ca9f85cd92f07b9",
+  "prompts": {},
+  "sessions": {
+    "s_961ad1477a9b2c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "697441d2-ac47-4f97-a864-437d6b42b710",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
