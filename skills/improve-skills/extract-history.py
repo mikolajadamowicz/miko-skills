@@ -24,9 +24,6 @@ SKILL_BODY = re.compile(r"^(?:Base directory for this skill: \S*/([a-z0-9-]+)|<s
 SKILL_FILE = re.compile(r"/([a-z0-9][a-z0-9-]*)/SKILL\.md")
 SLASH = re.compile(r"(?<![\w/.:<-])/([a-z0-9][a-z0-9:-]*)(?![\w/.-])")
 INJECTED = "Briefly inform the user about the task result"
-# Names that a tool call, an attached skill, or an expanded skill body proves are skills.
-# A slash name alone may be a built-in command, so the listing leaves those out.
-CONFIRMED = set()
 
 
 class Chat:
@@ -35,17 +32,20 @@ class Chat:
         self.chat_id = chat_id
         self.where = where
         self.updated = updated
-        # Each message is (role, text, skills used by that message).
+        # Each message is (role, text, skills it names or uses).
         self.messages = []
+        # Names a tool call, an attached skill, or a loaded skill body proves were used in
+        # this chat. A slash name alone may be a built-in command or a passing mention.
+        self.confirmed = set()
 
     def add(self, role, text, skills=()):
         self.messages.append((role, text, set(skills)))
 
     def first_use(self):
-        """Index of the first message that uses each skill."""
+        """Index of the first message that names or uses each confirmed skill."""
         first = {}
         for index, (_, _, skills) in enumerate(self.messages):
-            for skill in skills:
+            for skill in skills & self.confirmed:
                 first.setdefault(skill, index)
         return first
 
@@ -66,14 +66,11 @@ def clean_user_text(text):
         args = re.search(r"<command-args>(.*?)</command-args>", text, flags=re.S)
         text = f"{command.group(1)} {args.group(1) if args else ''}"
     text = text.strip()
-    CONFIRMED.update(attached)
-    return text, {bare(s) for s in SLASH.findall(text)} | set(attached)
+    return text, {bare(s) for s in SLASH.findall(text)}, set(attached)
 
 
 def skills_in_tool_input(tool_input):
-    found = set(SKILL_FILE.findall(json.dumps(tool_input)))
-    CONFIRMED.update(found)
-    return found
+    return set(SKILL_FILE.findall(json.dumps(tool_input)))
 
 
 def read_jsonl(path):
@@ -93,17 +90,19 @@ def read_blocks(chat, role, content, tool_skills):
     for block in blocks:
         if block.get("type") == "tool_use":
             skills |= tool_skills(block)
+    chat.confirmed |= skills
     if role == "user":
         body = SKILL_BODY.match(text)
         if body:
             name = body.group(1) or body.group(2)
-            CONFIRMED.add(name)
+            chat.confirmed.add(name)
             chat.add(role, f"[skill {name} loaded]", {name})
             return
         if not text or text.startswith(INJECTED):
             return
-        text, named = clean_user_text(text)
-        skills |= named
+        text, named, attached = clean_user_text(text)
+        chat.confirmed |= attached
+        skills |= named | attached
         if not text:
             return
     if text or skills:
@@ -116,9 +115,7 @@ def claude_chats():
     def tool_skills(block):
         input_ = block.get("input", {})
         if block.get("name") == "Skill":
-            found = {bare(input_.get("skill", ""))} - {""}
-            CONFIRMED.update(found)
-            return found
+            return {bare(input_.get("skill", ""))} - {""}
         return skills_in_tool_input(input_)
 
     # Subagent transcripts sit one level deeper, so this reads only the user's own chats.
@@ -172,9 +169,10 @@ def opencode_chats():
             for kind, raw in rows:
                 message = json.loads(raw)
                 if kind == "user":
-                    text, skills = clean_user_text(message.get("text", ""))
+                    text, named, attached = clean_user_text(message.get("text", ""))
+                    chat.confirmed |= attached
                     if text:
-                        chat.add("user", text, skills)
+                        chat.add("user", text, named | attached)
                 elif kind == "assistant":
                     parts, skills = [], set()
                     for block in message.get("content", []):
@@ -183,11 +181,10 @@ def opencode_chats():
                         elif block.get("type") == "tool":
                             input_ = block.get("state", {}).get("input", {})
                             if block.get("name") == "skill":
-                                named = {bare(input_.get("id", ""))} - {""}
-                                CONFIRMED.update(named)
-                                skills |= named
+                                skills |= {bare(input_.get("id") or input_.get("name") or "")} - {""}
                             else:
                                 skills |= skills_in_tool_input(input_)
+                    chat.confirmed |= skills
                     text = "\n".join(parts).strip()
                     if text or skills:
                         chat.add("assistant", text, skills)
@@ -231,7 +228,7 @@ def write_chat(chat, skill_start, skills, out_dir, max_chars):
         body = text if cut <= 0 else f"{text[:max_chars]}\n[cut {cut} characters]"
         tag = f" uses {', '.join(sorted(used))}" if used else ""
         lines.append(f"\n### {role.upper()} [{index}]{tag}\n{body}")
-    name = f"{chat.harness}_{chat.chat_id[:12]}.md"
+    name = f"{chat.harness}_{re.sub(r'[^A-Za-z0-9._-]', '-', chat.chat_id)}.md"
     with open(os.path.join(out_dir, name), "w") as f:
         f.write("\n".join(lines) + "\n")
     return follow_ups
@@ -283,8 +280,7 @@ def main():
     else:
         totals = Counter()
         for (_, skill), count in uses.items():
-            if skill in CONFIRMED:
-                totals[skill] += count
+            totals[skill] += count
         print("chats per skill (includes chats that edit the skill):")
         for skill, count in totals.most_common():
             per = {h: uses[(h, skill)] for h in SOURCES if uses[(h, skill)]}
