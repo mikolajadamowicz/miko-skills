@@ -35,6 +35,7 @@ The other skills are not part of review:
 | `unslop` | Removes AI writing patterns from casual prose: chat, Slack, email, social posts |
 | `benchmark-reviewers` | Runs `miko-review` and other reviewers (CodeRabbit, Cursor, Claude Code, OpenCode) on the same PR, has a blinded judge check every finding against the code, and proposes rule changes for what `miko-review` missed. Run `/benchmark-reviewers <PR>`. |
 | `give-feedback` | Drafts a PR review from findings, with one inline comment per finding and a short summary that counts blockers, fixes, and questions, or a thread reply. It revises them with you and posts with `gh` only after you say "post it". |
+| `improve-skills` | Reads your Claude Code, Cursor, and OpenCode chat history on this machine, finds where you corrected a skill or repeated an ask, and proposes changes backed by quotes. Run `/improve-skills <skill>`. |
 | `simple-explain` | Explains a concept, code, a review finding, or a decision in plain words with one example. Run `/simple-explain <topic>`, optionally with `normal` or `deep` for more detail. |
 
 ## Install
