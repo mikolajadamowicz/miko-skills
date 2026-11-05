@@ -66,6 +66,8 @@ def clean_user_text(text):
         args = re.search(r"<command-args>(.*?)</command-args>", text, flags=re.S)
         text = f"{command.group(1)} {args.group(1) if args else ''}"
     text = text.strip()
+    if not text and attached:
+        text = f"[skill {', '.join(attached)} attached]"
     return text, {bare(s) for s in SLASH.findall(text)}, set(attached)
 
 
@@ -213,7 +215,7 @@ def write_chat(chat, skill_start, skills, out_dir, max_chars):
         start -= 1
     follow_ups = sum(
         1 for role, text, _ in chat.messages[start + 1:]
-        if role == "user" and not re.fullmatch(r"\[skill [a-z0-9-]+ loaded\]", text)
+        if role == "user" and not re.fullmatch(r"\[skill [a-z0-9, -]+ (?:loaded|attached)\]", text)
     )
     date = datetime.date.fromtimestamp(chat.updated).isoformat()
     lines = [
