@@ -22,6 +22,19 @@ Copy this to `REVIEW.md` at the root of a repo and fill it in. Every review lens
 - All LLM calls go through `packages/llm`.
 - Evidence is redacted before storage.
 
+## What matters most
+
+Order this list by what would hurt this repo most. `miko-review` uses it to pick which findings are worth a PR comment.
+
+1. Evidence or account data leaks.
+2. A check passes when the behaviour is wrong.
+3. Docs drift.
+
+## Skip
+
+- Lint and format rules CI enforces: `pnpm lint`, `pnpm format:check`.
+- Accepted deviations: one required reviewer until the team grows.
+
 ## How to run things
 
 - Install: `pnpm install`
