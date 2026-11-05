@@ -1,6 +1,6 @@
 # Extensions
 
-An extension is a Markdown file that adds context and instructions to one skill. It never replaces the skill. Every review skill (`miko-review`, each `review-*` lens, `benchmark-reviewers`, and `give-feedback`) loads its own extensions before it starts work.
+An extension is a Markdown file that adds context and instructions to one skill. It never replaces the skill. Every review skill (`miko-review`, each `review-*` lens, `benchmark-reviewers`, `give-feedback`, and `improve-skills`) loads its own extensions before it starts work.
 
 ## Where they live
 
