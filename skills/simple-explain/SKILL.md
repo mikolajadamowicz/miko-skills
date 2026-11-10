@@ -26,8 +26,8 @@ Explain one thing so the user understands it on the first read. Answer in the la
 1. **Find the thing to explain.**
    - The user named it: use that.
    - The user says they do not get the last message, or names nothing right after a long agent message: explain that whole message, not one term from it.
-   - The user asks how the current feature or work works: take the flow being built in this conversation. Read the branch diff (`git diff` against the base branch, plus uncommitted changes) and the files touched in the conversation.
-   - The user gives a PR number or link: run `gh pr view <pr>` and `gh pr diff <pr>`.
+   - The user asks how the current feature or work works: take the flow being built in this conversation. Read the branch diff (`git diff` against the base branch, plus uncommitted changes), the untracked files that `git status --short` lists, and the files touched in the conversation.
+   - The user gives a PR number or link: run `gh pr view <pr>` and `gh pr diff <pr>`. To read the PR's version of a file without switching the user's branch, run `git fetch origin pull/<pr>/head` and then `git show FETCH_HEAD:<path>`. If the fetch fails, say so and explain from the diff alone.
    - The user names nothing else: take the last term, finding, or decision they reacted to.
    - If two things fit, ask which one in one line.
 2. **Check the facts.** If it is about code, read the code first. Explain what the code does, not what the name suggests. For a feature or PR, read the callers and callees of the changed code too, because a flow often runs through lines the diff does not show.
@@ -65,7 +65,7 @@ User: `/simple-explain race condition`
 >
 > **Why it matters.** It breaks only sometimes, so tests often miss it. The fix is to make the second step check that nothing changed before it writes.
 
-User: `/simple-explain how does the checkout flow work now`
+User: `/simple-explain what changed in the checkout flow on this branch`
 
 > **What it does.** When the user clicks "Pay", the app checks the cart, charges the card, and saves the order.
 >
