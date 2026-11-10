@@ -1,0 +1,25 @@
+skills/simple-explain/SKILL.md
+  s_5579f684b7ee32::t_fbaff0027af3d9 4-9,20-21,26-37,41-47,55,58,67-80
+.cursor-plugin/plugin.json
+  s_5579f684b7ee32::t_e166a48df91900 4
+.claude-plugin/plugin.json
+  s_5579f684b7ee32::t_e166a48df91900 3
+README.md
+  s_5579f684b7ee32::t_e166a48df91900 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "732ff4474ae66123c6a0b98b0fcb21437da1af4a",
+  "prompts": {},
+  "sessions": {
+    "s_5579f684b7ee32": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dd2db054-dd70-4f50-a6a8-aec4968fba50",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mikolaj Adamowicz <mikolaj.adamowicz@homesoft.app>"
+    }
+  }
+}
