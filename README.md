@@ -36,7 +36,7 @@ The other skills are not part of review:
 | `benchmark-reviewers` | Runs `miko-review` and other reviewers (CodeRabbit, Cursor, Claude Code, OpenCode) on the same PR, has a blinded judge check every finding against the code, and proposes rule changes for what `miko-review` missed. Run `/benchmark-reviewers <PR>`. |
 | `give-feedback` | Drafts a PR review from findings, with one inline comment per finding and a short summary that counts blockers, fixes, and questions, or a thread reply. It revises them with you and posts with `gh` only after you say "post it". |
 | `improve-skills` | Reads your Claude Code, Cursor, and OpenCode chat history on this machine, finds where you corrected a skill or repeated an ask, and proposes changes backed by quotes. Run `/improve-skills <skill>`. |
-| `simple-explain` | Explains a concept, code, a review finding, or a decision in plain words with one example. Run `/simple-explain <topic>`, optionally with `normal` or `deep` for more detail. |
+| `simple-explain` | Explains a concept, code, a review finding, a decision, the last agent message, the flow of the feature you are building, or someone else's PR in plain words with one example. Flows come as numbered steps with real function and file names. Run `/simple-explain <topic or PR>`, optionally with `normal` or `deep` for more detail. |
 
 ## Install
 
@@ -51,13 +51,16 @@ Install all the skills together, since the review skills read each other's files
 For skills only in any harness, run `npx skills add mikolajadamowicz/miko-skills -g`. `miko-review` then uses general-purpose subagents that read the same skills. To add the agents later, run the script from a clone:
 
 ```bash
-scripts/install-agents.sh                      # ~/.claude/agents (Claude Code, and Cursor reads it too)
+scripts/install-agents.sh                      # ~/.claude/agents (Claude Code, and the Cursor editor)
 scripts/install-agents.sh --cursor             # ~/.cursor/agents
+scripts/install-agents.sh --cursor-plugin      # ~/.cursor/plugins/local/miko-skills-agents (Cursor CLI)
 scripts/install-agents.sh --opencode           # ~/.config/opencode/agents
 scripts/install-agents.sh --all path/to/repo   # all three, inside a project
 ```
 
 Re-run it after pulling changes to `agents/`.
+
+When tested with `cursor-agent` 2026.11.17, the Cursor CLI ignored both `~/.claude/agents` and `~/.cursor/agents` and loaded agents only from plugins. `--cursor-plugin` installs a plugin that holds only the agents, so the skills from `npx skills` do not load twice. Start a new `cursor-agent` session after running it. Without the agents, `miko-review` in the CLI uses general-purpose subagents.
 
 ### Upgrading from 0.2
 
