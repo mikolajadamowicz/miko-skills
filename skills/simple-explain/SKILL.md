@@ -27,7 +27,7 @@ Explain one thing so the user understands it on the first read. Answer in the la
    - The user named it: use that.
    - The user says they do not get the last message, or names nothing right after a long agent message: explain that whole message, not one term from it.
    - The user asks how the current feature or work works: take the flow being built in this conversation. Read the branch diff (`git diff` against the base branch, plus uncommitted changes), the untracked files that `git status --short` lists, and the files touched in the conversation.
-   - The user gives a PR number or link: run `gh pr view <pr>` and `gh pr diff <pr>`. To read the PR's version of a file without switching the user's branch, run `git fetch origin pull/<pr>/head` and then `git show FETCH_HEAD:<path>`. If the fetch fails, say so and explain from the diff alone.
+   - The user gives a PR number or link: run `gh pr view <pr>` and `gh pr diff <pr>`. To read the PR's version of a file without switching the user's branch, take the owner, repo, and number from `gh pr view <pr> --json url`, because `origin` may be a fork or a different repo. Then run `git fetch https://github.com/<owner>/<repo>.git pull/<number>/head` and `git show FETCH_HEAD:<path>`. If the fetch fails, say so and explain from the diff alone.
    - The user names nothing else: take the last term, finding, or decision they reacted to.
    - If two things fit, ask which one in one line.
 2. **Check the facts.** If it is about code, read the code first. Explain what the code does, not what the name suggests. For a feature or PR, read the callers and callees of the changed code too, because a flow often runs through lines the diff does not show.
