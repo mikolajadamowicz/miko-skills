@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Installs the review subagents. Skills are installed separately with `npx skills add`.
 # Usage: scripts/install-agents.sh [--claude | --cursor | --opencode | --all] [project-dir]
-#   --claude    (default) .claude/agents — Claude Code, and Cursor via its .claude/agents support
+#   --claude    (default) .claude/agents — Claude Code, and the Cursor editor via its .claude/agents support.
+#               The Cursor CLI reads neither agents directory and loads agents only from a plugin.
 #   --cursor    .cursor/agents
 #   --opencode  .opencode/agents (project) or ~/.config/opencode/agents, converted to OpenCode frontmatter
 #   --all       all three

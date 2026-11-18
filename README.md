@@ -51,13 +51,15 @@ Install all the skills together, since the review skills read each other's files
 For skills only in any harness, run `npx skills add mikolajadamowicz/miko-skills -g`. `miko-review` then uses general-purpose subagents that read the same skills. To add the agents later, run the script from a clone:
 
 ```bash
-scripts/install-agents.sh                      # ~/.claude/agents (Claude Code, and Cursor reads it too)
+scripts/install-agents.sh                      # ~/.claude/agents (Claude Code, and the Cursor editor)
 scripts/install-agents.sh --cursor             # ~/.cursor/agents
 scripts/install-agents.sh --opencode           # ~/.config/opencode/agents
 scripts/install-agents.sh --all path/to/repo   # all three, inside a project
 ```
 
 Re-run it after pulling changes to `agents/`.
+
+The Cursor CLI (`cursor-agent`) ignores both `~/.claude/agents` and `~/.cursor/agents`. It loads the agents only from a plugin, for example `cursor-agent --plugin-dir path/to/miko-skills`. If you also installed the skills with `npx skills`, that loads every skill twice. Without the agents, `miko-review` in the CLI uses general-purpose subagents.
 
 ### Upgrading from 0.2
 
