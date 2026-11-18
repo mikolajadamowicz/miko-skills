@@ -53,13 +53,14 @@ For skills only in any harness, run `npx skills add mikolajadamowicz/miko-skills
 ```bash
 scripts/install-agents.sh                      # ~/.claude/agents (Claude Code, and the Cursor editor)
 scripts/install-agents.sh --cursor             # ~/.cursor/agents
+scripts/install-agents.sh --cursor-plugin      # ~/.cursor/plugins/local/miko-skills-agents (Cursor CLI)
 scripts/install-agents.sh --opencode           # ~/.config/opencode/agents
 scripts/install-agents.sh --all path/to/repo   # all three, inside a project
 ```
 
 Re-run it after pulling changes to `agents/`.
 
-The Cursor CLI (`cursor-agent`) ignores both `~/.claude/agents` and `~/.cursor/agents`. It loads the agents only from a plugin, for example `cursor-agent --plugin-dir path/to/miko-skills`. If you also installed the skills with `npx skills`, that loads every skill twice. Without the agents, `miko-review` in the CLI uses general-purpose subagents.
+When tested with `cursor-agent` 2026.11.17, the Cursor CLI ignored both `~/.claude/agents` and `~/.cursor/agents` and loaded agents only from plugins. `--cursor-plugin` installs a plugin that holds only the agents, so the skills from `npx skills` do not load twice. Start a new `cursor-agent` session after running it. Without the agents, `miko-review` in the CLI uses general-purpose subagents.
 
 ### Upgrading from 0.2
 
