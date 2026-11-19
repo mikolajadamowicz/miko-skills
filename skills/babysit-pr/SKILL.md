@@ -55,7 +55,7 @@ You run one round of looking after a PR and report what changed. The user runs r
 
    A reply is one short sentence with the commit SHA, such as "Fixed in a1b2c3d." or "Renamed to `parseConfig` in a1b2c3d." Add a second sentence only when you did something different from what was asked, and say why. Run the sibling `humanize` skill on every reply before posting. Write in the language the reviewer used.
 8. **Check CI.** Wait for the checks on the new head with `gh pr checks <n> -R <owner>/<repo> --watch`, for at most 15 minutes. A failure caused by this round's commits goes back to step 6, once. Anything still failing or running is left for the next round.
-9. **Re-request review** from a reviewer whose latest review is `CHANGES_REQUESTED` once every thread they opened is answered: `gh pr edit <n> -R <owner>/<repo> --add-reviewer <login>`. Do this once per review, not every round.
+9. **Re-request review** from a reviewer whose latest review is `CHANGES_REQUESTED`, once every queue item from them is answered: threads, review summaries, and general comments. Skip a reviewer already in `reviewRequests`, which GitHub keeps until they review again, so each review gets one request. Run `gh pr edit <n> -R <owner>/<repo> --add-reviewer <login>`.
 10. **Report.** Remove the worktree if you made one. Then report:
 
     ```
