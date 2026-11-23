@@ -104,13 +104,13 @@ You run one round of looking after a PR and report what changed. The user runs r
 
 Each run is one round. To babysit a PR until it is done, the user runs rounds in a loop that stops on `babysit: done` or `babysit: blocked`. On the own-PR path the harness must allow `git` and `gh` without prompting, since nobody is there to approve.
 
-In Claude Code, run `/loop /babysit-pr <n>`. In Cursor and OpenCode, run a shell loop:
+In Claude Code, run `/loop /babysit-pr <n>`. In Cursor and OpenCode, run a shell loop. `tee` shows each round's report while `grep` reads the status line:
 
 ```bash
 # Cursor
-until cursor-agent -p --force "Run the babysit-pr skill on PR <n>" | grep -qE '^babysit: (done|blocked)'; do sleep 1800; done
+until cursor-agent -p --force "Run the babysit-pr skill on PR <n>" | tee /dev/stderr | grep -qE '^babysit: (done|blocked)'; do sleep 1800; done
 # OpenCode
-until opencode run --auto "Run the babysit-pr skill on PR <n>" | grep -qE '^babysit: (done|blocked)'; do sleep 1800; done
+until opencode run --auto "Run the babysit-pr skill on PR <n>" | tee /dev/stderr | grep -qE '^babysit: (done|blocked)'; do sleep 1800; done
 ```
 
 When you run inside a loop that you pace yourself, end the loop on `done` or `blocked`, and schedule the next round about 30 minutes out on `continue`. When the user asks to babysit a PR outside a loop, run one round and show the matching command.
