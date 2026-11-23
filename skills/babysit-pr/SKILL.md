@@ -74,7 +74,7 @@ You run one round of looking after a PR and report what changed. The user runs r
     ```
 
     Leave out empty sections. "Ready to merge" means approved, CI green, and nothing open. The last line is the round's status, written exactly as shown, so a loop can read it:
-    - `done`: approved, CI green, and every thread resolved.
+    - `done`: approved, CI green, and the step 3 queue empty: every thread resolved and every review summary and general comment answered.
     - `blocked`: everything left is `needs you` or `push back`, so another round cannot change anything until the user acts.
     - `continue`: anything else, such as CI still running, a reviewer who has not answered, or new comments.
 
