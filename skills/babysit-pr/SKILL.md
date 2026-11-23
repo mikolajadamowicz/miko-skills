@@ -80,7 +80,7 @@ You run one round of looking after a PR and report what changed. The user runs r
 
 ## Someone else's PR
 
-3. **Find the viewer's threads.** Fetch the PR's head without touching the user's checkout: `git fetch https://github.com/<owner>/<repo>.git pull/<n>/head`, then read files with `git show FETCH_HEAD:<path>`. Take every review thread the viewer started, and every review summary or general comment from the viewer that asks for something. For each one, read the code at `FETCH_HEAD` and mark it:
+3. **Find the viewer's threads.** Fetch the PR's head without touching the user's checkout: `git fetch https://github.com/<owner>/<repo>.git pull/<n>/head`, then read files with `git show "FETCH_HEAD:$path"`, with `path` set as step 1 describes. Take every review thread the viewer started, and every review summary or general comment from the viewer that asks for something. For each one, read the code at `FETCH_HEAD` and mark it:
    - `fixed`: the code now does what the viewer asked.
    - `partly fixed` or `not fixed`, with what is missing.
    - `answered`: the author replied and the viewer has not answered back. Quote the reply in one line.
